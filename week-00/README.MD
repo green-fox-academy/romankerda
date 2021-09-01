@@ -1,1 +1,1 @@
-Oth homework - myFirstWebpage
+Oth homework - myFirstWebsite
