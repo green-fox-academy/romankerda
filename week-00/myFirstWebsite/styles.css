@@ -48,31 +48,26 @@ body{
 
  h1 {
      font-size: 80px;
-     font-weight: lighter;
      margin-top: 100px;     
  }
 
  h2 {
      font-size: 40px;
-     font-weight: lighter;
      color: #ff0099;    
  }
 
  h3 {
     font-size: 48px;
-    font-weight: lighter;
     text-align: center;
  }
 
  h4 {
     font-size: 35px;
-    font-weight: lighter;
     margin: 75px 0px 30px;
  }
 
  p{
      font-size: 25px;
-     font-weight: lighter;
      text-align: justify;
  }
 
