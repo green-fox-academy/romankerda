@@ -49,6 +49,7 @@ body{
 
 #top-navigation a:hover {
     color: aliceblue;
+    text-decoration: none;
  }
 
  #personal-info {
