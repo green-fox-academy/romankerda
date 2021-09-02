@@ -17,6 +17,7 @@ body{
     background-size: 600px;
     margin: 0px 10%;
     min-width: 700px;
+    border-radius: 5px;
 }
 
 #top-navigation {
@@ -30,6 +31,7 @@ body{
     overflow-x: auto;
     position: sticky;
     top: 0px;
+    border-radius: 5px;
    }
 
 #top-navigation ul {
