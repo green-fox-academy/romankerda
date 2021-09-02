@@ -1,10 +1,14 @@
+
+/* basic blocks styling */
+/* -------------------------------------------------------------------------------------------- */
+
 * {
     box-sizing: border-box;
 }
 
 body{
     background-color: rgb(200 200 200); 
-    font-family: "Inconsolata", courier;
+    font-family: Inconsolata, courier;
 }
 
 #wrapper {
@@ -43,10 +47,24 @@ body{
     font-size: 25px;
 }
 
+#top-navigation a:hover {
+    color: aliceblue;
+ }
+
  #personal-info {
      height: auto;
      padding: 0px 10%;
  }
+
+ #tech-wiki {
+    padding-bottom: 100px;
+ }
+
+
+
+
+ /* Font styling */
+ /* -------------------------------------------------------------------------------------------- */
 
  h1 {
      font-size: 80px;
