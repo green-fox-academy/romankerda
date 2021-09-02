@@ -10,7 +10,7 @@ body{
 #wrapper {
     
     background-image: url("assets/topography.png");
-    background-size: 30%;
+    background-size: 600px;
     margin: 0px 10%;
     min-width: 700px;
 }
@@ -28,7 +28,7 @@ body{
 
 #top-navigation ul {
     list-style-type: none;
-    padding: 0px 10%;       
+    padding: 5px 10%;       
 }
 
 #top-navigation li {
