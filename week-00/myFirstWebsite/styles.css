@@ -24,6 +24,8 @@ body{
     text-align: right;
     min-width: 700px;
     overflow-x: auto;
+    position: sticky;
+    top: 0px;
    }
 
 #top-navigation ul {
