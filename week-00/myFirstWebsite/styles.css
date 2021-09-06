@@ -1,10 +1,14 @@
+
+/* basic blocks styling */
+/* -------------------------------------------------------------------------------------------- */
+
 * {
     box-sizing: border-box;
 }
 
 body{
     background-color: rgb(200 200 200); 
-    font-family: "Inconsolata", courier;
+    font-family: Inconsolata, courier;
 }
 
 #wrapper {
@@ -13,6 +17,7 @@ body{
     background-size: 600px;
     margin: 0px 10%;
     min-width: 700px;
+    border-radius: 5px;
 }
 
 #top-navigation {
@@ -26,6 +31,7 @@ body{
     overflow-x: auto;
     position: sticky;
     top: 0px;
+    border-radius: 5px;
    }
 
 #top-navigation ul {
@@ -43,10 +49,25 @@ body{
     font-size: 25px;
 }
 
+#top-navigation a:hover {
+    color: aliceblue;
+    text-decoration: none;
+ }
+
  #personal-info {
      height: auto;
      padding: 0px 10%;
  }
+
+ #tech-wiki {
+    padding-bottom: 100px;
+ }
+
+
+
+
+ /* Font styling */
+ /* -------------------------------------------------------------------------------------------- */
 
  h1 {
      font-size: 80px;
