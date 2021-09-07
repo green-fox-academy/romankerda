@@ -1,6 +1,3 @@
-
-# romankerda
-
 ## Links to other repo's and their description
 
 [GFA Syllabus info](https://github.com/green-fox-academy/prg-spears-syllabus.git "Cana Spears Class Syllabus")
