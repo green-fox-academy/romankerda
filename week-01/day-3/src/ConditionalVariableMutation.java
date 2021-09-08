@@ -68,7 +68,7 @@ public class ConditionalVariableMutation {
         } else if (d % 4 != 0) {
             output3 = "Run Forest Run!";
         }
-        
+
         System.out.println(output3);
     }
 }
