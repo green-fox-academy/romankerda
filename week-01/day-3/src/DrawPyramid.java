@@ -19,7 +19,7 @@ public class DrawPyramid {
         System.out.println("How many line should pyramid have? :");
         int size = scanner.nextInt();
 
-        for (int row = -size; row < 1; row++) {
+        for (int row = -size+1; row < 1; row++) {
             for (int col = -size+1; col < size; col++) {
                 if ((Math.abs(row) + Math.abs(col)) < size) {
                     System.out.print("*");

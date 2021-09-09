@@ -21,6 +21,5 @@ public class SubStr {
         if (pos != -1) {
             return pos;
         } else return -1;
-
     }
 }
