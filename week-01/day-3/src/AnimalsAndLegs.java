@@ -8,10 +8,12 @@ public class AnimalsAndLegs {
         // It should print how many legs all the animals have
 
         Scanner scanner = new Scanner(System.in);
+
         System.out.println("How many chicken has the farmer?");
         int chickens = scanner.nextInt();
         System.out.println("How many pigs has the farmer?");
         int pigs = scanner.nextInt();
+
         int totalLegs = 2*chickens + 4*pigs;
         System.out.println("All farmer's animals have " + totalLegs + " legs in total.");
 

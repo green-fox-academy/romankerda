@@ -18,6 +18,7 @@ public class CountFromTo {
         // 5
 
         Scanner scanner = new Scanner(System.in);
+
         System.out.println("Write 1st number: ");
         int first = scanner.nextInt();
         System.out.println("Write 2nd number (bigger then 1st number) :");

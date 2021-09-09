@@ -6,6 +6,7 @@ public class MileToKmConverter {
         // then it converts that value to kilometers and prints it
 
         Scanner scanner = new Scanner(System.in);
+
         System.out.println("Input distance in miles:");
         double distMiles = scanner.nextDouble();
         double distKm = distMiles * 1.61;

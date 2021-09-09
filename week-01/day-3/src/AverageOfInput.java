@@ -8,6 +8,7 @@ public class AverageOfInput {
         // Sum: 22, Average: 4.4
 
         Scanner scanner = new Scanner(System.in);
+
         System.out.println("Insert 1st number : ");
         int sum = scanner.nextInt();
         System.out.println("Insert 2nd number : ");
