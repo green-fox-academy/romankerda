@@ -29,8 +29,8 @@ public class DrawDiamond {
         }
 
         for (int i = -size/2; i < size/2+1; i++) {
-            for (int j = -size/2; j < size/2+1; j++) {
-                if ((Math.abs(i) + Math.abs(j)) <= size/2) {
+            for (int col = -size/2; col < size/2+1; col++) {
+                if ((Math.abs(i) + Math.abs(col)) <= size/2) {
                     System.out.print("*");
                 } else System.out.print(" ");
             }

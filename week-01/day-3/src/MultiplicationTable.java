@@ -26,6 +26,5 @@ public class MultiplicationTable {
         for (int i = 1; i < 11; i++) {
             System.out.println(i + " * " + num + " = " + i * num);
         }
-
     }
 }

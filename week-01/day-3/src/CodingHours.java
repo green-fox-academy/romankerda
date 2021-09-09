@@ -21,6 +21,5 @@ public class CodingHours {
 
         percOfCodingHrs = (float)(daily * weekDays) / avgWorkHrs * 100;
         System.out.println("The percentage of the coding hours in the semester = " + percOfCodingHrs);
-
     }
 }

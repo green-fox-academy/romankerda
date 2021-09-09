@@ -18,6 +18,5 @@ public class PrintBigger {
         } else {
             System.out.println("Same numbers");
         }
-
     }
 }

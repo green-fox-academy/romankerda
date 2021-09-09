@@ -16,7 +16,5 @@ public class AnimalsAndLegs {
 
         int totalLegs = 2*chickens + 4*pigs;
         System.out.println("All farmer's animals have " + totalLegs + " legs in total.");
-
-
     }
 }

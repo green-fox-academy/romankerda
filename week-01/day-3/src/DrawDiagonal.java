@@ -27,40 +27,19 @@ public class DrawDiagonal {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("How many lines should square have? :");
-        int lines = scanner.nextInt();
-        if (lines < 1) {
+        int size = scanner.nextInt();
+        if (size < 1) {
             System.out.println("Can't do it, try again higher number :");
             return;
         }
 
-
-        for (int i = 0; i < lines; i++) {               // 1st line
-            System.out.print("%");
-        }
-        System.out.println(" ");                        // go to next line
-
-        for (int i = 0; i < lines - 2; i++) {           // body
-            System.out.print("%");                      // 1st % @ given line of the body
-            for (int j = 0; j < lines - 2; j++) {
-                if (j == i) {                           // check if space should be replaced by % at given line
+        for (int row = 0; row < size; row++) {
+            for (int col = 0; col < size; col++) {
+                if (row == 0 || col == 0 || row == size-1 || col == size-1 || row == col) {
                     System.out.print("%");
-                } else {
-                    System.out.print(" ");                  // empty spaces @ given line of the body
-                }
+                } else System.out.print(" ");
             }
-            System.out.print("%");                      // last % @ given line
-            System.out.println();                       // next line
+            System.out.println();
         }
-
-        if (lines == 1) {                               // no last line if square size = 1
-            return;
-        }
-
-        for (int i = 0; i < lines; i++) {               // last line
-            System.out.print("%");
-        }
-
-
-
     }
 }

@@ -15,17 +15,12 @@ public class DrawChessTable {
 
 
         for (int row = 0; row < 8; row++) {
-            for (int column = 0; column < 8; column++) {
-                if ((row % 2 == 0 && column % 2 == 0) || (row % 2 != 0 && column % 2 != 0)) {
+            for (int col = 0; col < 8; col++) {
+                if ((row % 2 == 0 && col % 2 == 0) || (row % 2 != 0 && col % 2 != 0)) {
                     System.out.print("%");
                 } else System.out.print(" ");
             }
             System.out.println();
-
         }
-
-
-
-
     }
 }

@@ -22,6 +22,5 @@ public class AverageOfInput {
 
         double avg = sum / 5.;
         System.out.println("Sum: " + sum + ", Average: " + avg);
-
     }
 }
