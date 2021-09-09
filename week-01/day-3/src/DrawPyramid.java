@@ -17,16 +17,16 @@ public class DrawPyramid {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("How many line should pyramid have? :");
-        int lines = scanner.nextInt();
+        int size = scanner.nextInt();
 
-        for (int i = 1; i < lines +1; i++) {                // go through each line
-            for (int j = 0; j < lines-i; j++) {
-                System.out.print(" ");                      // print respective nr. of blanks at each line
+        for (int row = -size; row < 1; row++) {
+            for (int col = -size+1; col < size; col++) {
+                if ((Math.abs(row) + Math.abs(col)) < size) {
+                    System.out.print("*");
+                } else System.out.print(" ");
             }
-            for (int k = 0; k < i * 2 -1; k++) {            // print respective nr. of * at each line
-                System.out.print("*");
-            }
-            System.out.println();                           // go to next line
+            System.out.println();
         }
     }
 }
+

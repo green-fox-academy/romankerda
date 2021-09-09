@@ -29,27 +29,13 @@ public class DrawSquare {
             return;
         }
 
-
-        for (int i = 0; i < lines; i++) {               // 1st line
-            System.out.print("%");
-        }
-        System.out.println(" ");                        // go to next line
-
-        for (int i = 0; i < lines - 2; i++) {           // body
-            System.out.print("%");                      // 1st % @ given line of the body
-            for (int j = 0; j < lines - 2; j++) {
-                System.out.print(" ");                  // empty spaces @ given line of the body
+        for (int row = 0; row < lines; row++) {
+            for (int col = 0; col < lines; col++) {
+                if (row == 0 || col == 0 || row == lines-1 || col == lines-1) {
+                    System.out.print("%");
+                } else System.out.print(" ");
             }
-            System.out.print("%");                      // last % @ given line
-            System.out.println();                       // next line
-        }
-
-        if (lines == 1) {                               // no last line if square size = 1
-            return;
-        }
-
-        for (int i = 0; i < lines; i++) {               // last line
-            System.out.print("%");
+            System.out.println();
         }
     }
 
