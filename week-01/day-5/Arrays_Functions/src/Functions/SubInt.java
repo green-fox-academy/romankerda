@@ -17,8 +17,6 @@ public class SubInt {
     // Note: We are using Arrays.toString() function to print the array returned
     // You could just as well iterate over the array and print its items one by one
 
-
-
   }
 
   public static int[] findMatchingIndexes(int number, int[] array) {
@@ -28,9 +26,9 @@ public class SubInt {
     int[] outputLong = new int[array.length];
 
     for (int i = 0; i < array.length; i++) {
-      String arrayNrString = String.valueOf(array[i]);
-      outputLong[i] = arrayNrString.indexOf(numberString);
-      if (arrayNrString.indexOf(numberString) != -1) {
+      String check = String.valueOf(array[i]);
+      outputLong[i] = check.indexOf(numberString);
+      if (check.indexOf(numberString) != -1) {
         matches++;
       }
     }

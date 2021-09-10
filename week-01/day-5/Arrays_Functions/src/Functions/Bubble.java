@@ -25,11 +25,14 @@ public class Bubble {
   public static int[] advancedBubble(int[] input, boolean descend) {
     if (!descend) {
       bubble(input);
+    } else {
+      Arrays.sort(arrayToNegative(input));
+      arrayToNegative(input);
     }
-    for (int i = 0; i < input.length; i++) {
-      input[i] = -1*input[i];
-    }
-    Arrays.sort(input);
+    return input;
+  }
+
+  public static int[] arrayToNegative(int[] input) {
     for (int i = 0; i < input.length; i++) {
       input[i] = -1*input[i];
     }

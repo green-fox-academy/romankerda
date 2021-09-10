@@ -16,8 +16,6 @@ public class ReverseList {
     for (int i = 0; i < numbers.length; i++) {
       numbersReverted[i] = numbers[numbers.length-1-i];
     }
-    for (int n : numbersReverted) {
-      System.out.print(n + ", ");
-    }
+    System.out.println(Arrays.toString(numbersReverted));
   }
 }

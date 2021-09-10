@@ -8,7 +8,7 @@ public class Factorial {
     // - Create a function called `calculateFactorial()`
     //   that returns the factorial of its input
 
-    int number = 100;
+    int number = 10;
     System.out.println(calculateFactorial(number));
   }
 

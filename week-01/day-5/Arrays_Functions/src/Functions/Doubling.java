@@ -15,5 +15,4 @@ public class Doubling {
   public static int doubleNumber(int number) {
     return 2*number;
   }
-
 }
