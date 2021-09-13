@@ -5,6 +5,7 @@ public class FavoriteNumber {
         // And print it like this: "My favorite number is: 8"
 
         int myFavoriteNumber = 27;
-        System.out.println("My Favorite number is: " + myFavoriteNumber);
+        System.out.printf("My Favorite number is: %d ", myFavoriteNumber);
+
     }
 }

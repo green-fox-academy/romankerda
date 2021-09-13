@@ -1,3 +1,5 @@
+import java.lang.reflect.Array;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class SubStr {
@@ -21,5 +23,6 @@ public class SubStr {
     if (pos != -1) {
       return pos;
     } else return -1;
+
   }
 }
