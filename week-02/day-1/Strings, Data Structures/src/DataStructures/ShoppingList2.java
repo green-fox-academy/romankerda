@@ -128,5 +128,6 @@ public class ShoppingList2 {
     if (bobPcs > alicePcs) {
       System.out.println("Bob buys more pcs.");
     } else System.out.println("Alice buys more pcs.");
+    
   }
 }

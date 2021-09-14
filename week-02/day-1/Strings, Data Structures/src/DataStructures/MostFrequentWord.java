@@ -25,7 +25,6 @@ public class MostFrequentWord {
         frequency.put(s, frequency.get(s) + 1);
       }
     }
-
     int max = 0;
     String word = "";
     for (String s : frequency.keySet()) {
@@ -33,9 +32,6 @@ public class MostFrequentWord {
         max = frequency.get(s);
         word = s;
       }
-    }
-    for (String s : frequency.keySet()) {
-      System.out.printf("%d x %s\n", frequency.get(s), s);
     }
     return word;
   }
