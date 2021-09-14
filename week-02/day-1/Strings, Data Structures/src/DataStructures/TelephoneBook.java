@@ -37,7 +37,7 @@ public class TelephoneBook {
 
     System.out.println(phoneBook.get("Chris E. Myers"));
 
-    boolean answer = !isNull(phoneBook.get("Chris E. Myers"));
+    boolean answer = phoneBook.containsKey("Chris E. Myers");
     System.out.printf("Do we know  Chris E. Myers' nr?: %b", answer);
 
 
