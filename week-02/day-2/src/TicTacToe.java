@@ -67,7 +67,10 @@ public class TicTacToe {
     }
     combinations.add(word);
 
-    word = "" + matrix[2][0] + matrix[0][0] + matrix[0][2];
+    word = "";
+    for (int i = 0; i < lines.size(); i++) {
+      word += lines.get(i).charAt(lines.size() -2);
+    }
     combinations.add(word);
 
     if (combinations.contains("XXX")){
