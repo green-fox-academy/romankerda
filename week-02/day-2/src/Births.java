@@ -25,11 +25,10 @@ public class Births {
   }
 
   public static String yearMostBirth(String fileName) {
-    Path path = Paths.get(fileName);
     List<String> lines = new ArrayList<>();
 
     try {
-      lines = Files.readAllLines(path);
+      lines = Files.readAllLines(Paths.get(fileName));
     } catch (IOException e) {
       System.err.println("Could not read file");
     }
