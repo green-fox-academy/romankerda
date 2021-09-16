@@ -10,27 +10,26 @@ public class SuperHexagon {
   public static void drawImage(Graphics graphics) {
 
     draw6Hex(160, 160, graphics, 0);
-
   }
 
   public static void draw6Hex(int xPos, int yPos, Graphics g, int count) {
-      int[] xCenter = {xPos - 18, xPos, xPos + 18, xPos + 18, xPos, xPos - 18};
-      int[] yCenter = {yPos + 10, yPos + 20, yPos + 10, yPos - 10, yPos - 20, yPos - 10};
+    int[] xCenter = {xPos - 18, xPos, xPos + 18, xPos + 18, xPos, xPos - 18};
+    int[] yCenter = {yPos + 10, yPos + 20, yPos + 10, yPos - 10, yPos - 20, yPos - 10};
 
-      for (int i = 0; i < 6; i++) {
-        int xPosition = xCenter[i];
-        int yPosition = yCenter[i];
-        int[] xpoints = {xPosition - 6, xPosition + 6, xPosition + 12, xPosition + 6, xPosition - 6, xPosition - 12};
-        int[] ypoints = {yPosition + 10, yPosition + 10, yPosition, yPosition - 10, yPosition - 10, yPosition};
-        g.drawPolygon(xpoints, ypoints, 6);
-      }
-        count++;
-        if (count > 3) {
-          return;
-      }
-      for (int i = 0; i < 6; i++) {
-        draw6Hex(xCenter[i], yCenter[i], g, count);
-      }
+    for (int i = 0; i < 6; i++) {
+      int xPosition = xCenter[i];
+      int yPosition = yCenter[i];
+      int[] xpoints = {xPosition - 6, xPosition + 6, xPosition + 12, xPosition + 6, xPosition - 6, xPosition - 12};
+      int[] ypoints = {yPosition + 10, yPosition + 10, yPosition, yPosition - 10, yPosition - 10, yPosition};
+      g.drawPolygon(xpoints, ypoints, 6);
+    }
+    count++;
+    if (count > 3) {
+      return;
+    }
+    for (int i = 0; i < 6; i++) {
+      draw6Hex(xCenter[i], yCenter[i], g, count);
+    }
   }
 
 
