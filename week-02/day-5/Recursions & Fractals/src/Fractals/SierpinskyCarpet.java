@@ -18,6 +18,9 @@ public class SierpinskyCarpet {
     if (size < 1) {
       return;
     }
+
+    TimeUnit.MILISECONDS.sleep(500);
+
     int xBoxPos = xCenter - size / 2;
     int yBoxPos = yCenter - size / 2;
     g.setColor(Color.ORANGE);
