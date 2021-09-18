@@ -15,7 +15,7 @@ public class SquareGrid {
   }
 
   public static void drawBox(int xCenter, int yCenter, int size, Graphics g) {
-    if (size < 1) {
+    if (size < 50) {
       return;
     }
     int xBoxPos = xCenter - size / 2;
@@ -26,11 +26,11 @@ public class SquareGrid {
     g.fillRect(xCenter - size/2, yCenter + size/2 - size/20,size, size/20);
     g.fillRect(xCenter + size/2 -size/20, yCenter - size/2,size/20, size);
 
-    drawBox(xCenter - size/2, yCenter - size/2, size/2, g);
-    drawBox(xCenter - size/2, yCenter + size/2, size/2, g);
-    drawBox(xCenter + size/2, yCenter - size/2, size/2, g);
-    drawBox(xCenter + size/2, yCenter + size/2, size/2, g);
-
+    for (int i = -1; i < 2; i += 2) {
+      for (int j = -1; j < 2; j += 2) {
+        drawBox(xCenter + i * size/2, yCenter + j * size/2, size/2, g);
+      }
+    }
   }
 
 

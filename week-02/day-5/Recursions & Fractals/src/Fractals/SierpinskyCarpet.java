@@ -11,28 +11,21 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
 public class SierpinskyCarpet {
 
   public static void drawImage(Graphics graphics){
-    drawBox(320,320,640/3, graphics);
+    drawBox(0,0,WIDTH, graphics, 5);
   }
 
-  public static void drawBox(int xCenter, int yCenter, int size, Graphics g) {
-    if (size < 1) {
+  public static void drawBox(int x, int y, int size, Graphics g, int level) {
+    if (level == 0) {
       return;
     }
-
-
-    int xBoxPos = xCenter - size / 2;
-    int yBoxPos = yCenter - size / 2;
     g.setColor(Color.ORANGE);
-    g.fillRect(xBoxPos, yBoxPos, size, size);
+    g.fillRect(x + size/3, y + size/3, size/3, size/3);
 
-    drawBox(xCenter, yCenter - size, size/3, g);
-    drawBox(xCenter, yCenter + size, size/3, g);
-    drawBox(xCenter + size, yCenter, size/3, g);
-    drawBox(xCenter - size, yCenter, size/3, g);
-    drawBox(xCenter - size, yCenter + size, size/3, g);
-    drawBox(xCenter - size, yCenter - size, size/3, g);
-    drawBox(xCenter + size, yCenter - size, size/3, g);
-    drawBox(xCenter + size, yCenter + size, size/3, g);
+    for (int i = 0; i < 3; i++) {
+      for (int j = 0; j < 3; j++) {
+          drawBox(x + i * size/3, y + j * size/3, size / 3, g, level-1);
+      }
+    }
   }
 
 

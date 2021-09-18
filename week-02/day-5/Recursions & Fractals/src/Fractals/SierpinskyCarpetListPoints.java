@@ -17,7 +17,7 @@ public class SierpinskyCarpetListPoints {
 
 
     ArrayList<ArrayList<Integer>> boxes = new ArrayList<>();
-    ArrayList<ArrayList<Integer>> listForPrint = getPoints(320, 320, 640 / 3, boxes);
+    ArrayList<ArrayList<Integer>> listForPrint = getPoints(0,0,WIDTH, graphics, 5, boxes);
 
     for (ArrayList<Integer> box : listForPrint) {
       System.out.printf("#%d  /  %d - %d - %d\n",listForPrint.indexOf(box), box.get(0), box.get(1), box.get(2));
@@ -25,29 +25,23 @@ public class SierpinskyCarpetListPoints {
     }
   }
 
-  public static ArrayList<ArrayList<Integer>> getPoints(int xCenter, int yCenter, int size, ArrayList<ArrayList<Integer>> boxes) {
-    if (size < 2) {
-      return  null;
+  public static ArrayList<ArrayList<Integer>> getPoints(int x, int y, int size, Graphics g, int level, ArrayList<ArrayList<Integer>> boxes ) {
+    if (level == 0) {
+      return boxes;
     }
+    g.setColor(Color.ORANGE);
+    g.fillRect(x + size/3, y + size/3, size/3, size/3);
+
     ArrayList<Integer> oneBox = new ArrayList<>();
-
-    int xBoxPos = xCenter - size / 2;
-    int yBoxPos = yCenter - size / 2;
-    oneBox.add(xBoxPos);
-    oneBox.add(yBoxPos);
-    oneBox.add(size);
+    oneBox.add(x + size/3);
+    oneBox.add(y + size/3);
+    oneBox.add(size/3);
     boxes.add(oneBox);
-
-
-    getPoints(xCenter, yCenter - size, size/3, boxes);
-    getPoints(xCenter, yCenter + size, size/3, boxes);
-    getPoints(xCenter + size, yCenter, size/3, boxes);
-    getPoints(xCenter - size, yCenter, size/3, boxes);
-    getPoints(xCenter - size, yCenter + size, size/3, boxes);
-    getPoints(xCenter - size, yCenter - size, size/3, boxes);
-    getPoints(xCenter + size, yCenter - size, size/3, boxes);
-    getPoints(xCenter + size, yCenter + size, size/3, boxes);
-
+    for (int i = 0; i < 3; i++) {
+      for (int j = 0; j < 3; j++) {
+        getPoints(x + i * size/3, y + j * size/3, size / 3, g, level-1, boxes);
+      }
+    }
     return boxes;
   }
 
