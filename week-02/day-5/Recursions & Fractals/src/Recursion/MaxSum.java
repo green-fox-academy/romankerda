@@ -19,16 +19,21 @@ public class MaxSum {
 // 1 + 3 + 4 + 5 = 13
 // 2 + 3 + 4 + 5 = 14
 
-//    int[] input = {1, 2, 3, 4, 5};
-//    System.out.println(maxSum(input, 0);
+    int[] input = {1, 2, 3, 4, 5};
+    System.out.println(maxSum(input, 0));
+  }
 
+  public static int maxSum(int[] input, int index) {
+    if (index == input.length) {
+        return 0;
+    }
+    int sum = 0;
+    for (int i = 0; i < input.length; i++) {
+      sum += input[i];
+    }
+    if (sum - input[index] > (maxSum(input, index + 1))) {
+      return sum - input[index];
+    }
+    return maxSum(input, index + 1);
   }
 }
-
-//  public static int maxSum(int[] input, int index) {
-//      if (index == input.length) {
-//        return 0;
-//      }
-//      if (maxSum(input, index + 1) > )
-//    }
-//}
