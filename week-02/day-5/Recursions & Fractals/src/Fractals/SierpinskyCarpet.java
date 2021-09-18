@@ -19,7 +19,6 @@ public class SierpinskyCarpet {
       return;
     }
 
-    TimeUnit.MILISECONDS.sleep(500);
 
     int xBoxPos = xCenter - size / 2;
     int yBoxPos = yCenter - size / 2;

@@ -13,8 +13,9 @@ public class Fibonacci {
 
     int n = 15;
     for (int i = 0; i < n; i++) {
-      System.out.printf("%d. %d\n", i, fibonacci(i));
+      System.out.printf("%d. %d\n\n", i, fibonacci(i));
     }
+    System.out.println(fibonacci(n));
 
   }
 
