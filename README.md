@@ -1,3 +1,19 @@
+## Work progress
+
+
+   <empty> |`day-1`| `day-2` | `day-3` | `day-4` | `day-5`
+---------- |:---:|:-----:|:-----:|:-----:|:-----:
+`week-05`| [ ](https://www.example.com) | [ ](https://www.example.com) | [ ](https://www.example.com) | [ ](https://www.example.com) | [ ](https://www.example.com)
+`week-04`| [ ](https://www.example.com) | [ ](https://www.example.com) | [ ](https://www.example.com) | [ ](https://www.example.com) | [ ](https://www.example.com)
+`week-03`| [ ](https://www.example.com) | [ ](https://www.example.com) | [ ](https://www.example.com) | [ ](https://www.example.com) | [ ](https://www.example.com)
+`week-02`| [ ](https://www.example.com) | [ ](https://www.example.com) | [ ](https://www.example.com) | [ ](https://www.example.com) | [ ](https://www.example.com)
+`week-01`|   | [`CLI`](https://github.com/green-fox-academy/romankerda/tree/master/week-01/day-2) | [`For, While, Do-While`](https://github.com/green-fox-academy/romankerda/tree/master/week-01/day-3/src) |  | [`Arrays & Functions`](https://github.com/green-fox-academy/romankerda/tree/master/week-01/day-5/Arrays_Functions/src)
+
+ 
+<br/>
+<br/>
+ 
+ 
 ## Links to other repo's and their description
 
 [GFA Syllabus info](https://github.com/green-fox-academy/prg-spears-syllabus.git "Cana Spears Class Syllabus")
