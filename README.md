@@ -2,7 +2,7 @@
 
 
    week / day |`1`| `2` | `3` | `4` | `5`
----------- |:---:|:-----:|:-----:|:-----:|:-----:
+:--------: |:---:|:-----:|:-----:|:-----:|:-----:
 `05`| [ ](https://www.example.com) | [ ](https://www.example.com) | [ ](https://www.example.com) | [ ](https://www.example.com) | [ ](https://www.example.com)
 `04`| [ ](https://www.example.com) | [ ](https://www.example.com) | [ ](https://www.example.com) | [ ](https://www.example.com) | [ ](https://www.example.com)
 `03`| [ ](https://www.example.com) | [ ](https://www.example.com) | [ ](https://www.example.com) | [ ](https://www.example.com) | [ ](https://www.example.com)
