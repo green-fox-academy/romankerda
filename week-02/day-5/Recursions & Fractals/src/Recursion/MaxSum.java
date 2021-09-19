@@ -24,16 +24,12 @@ public class MaxSum {
   }
 
   public static int maxSum(int[] input, int index) {
-    if (index == input.length) {
-        return 0;
-    }
+    if (index == input.length) return 0;
     int sum = 0;
     for (int i = 0; i < input.length; i++) {
-      sum += input[i];
+      if (i != index) sum += input[i];
     }
-    if (sum - input[index] > (maxSum(input, index + 1))) {
-      return sum - input[index];
-    }
+    if (sum > (maxSum(input, index + 1))) return sum;
     return maxSum(input, index + 1);
   }
 }

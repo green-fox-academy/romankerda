@@ -11,19 +11,15 @@ public class Fibonacci {
 // returns the nth fibonacci number,
 // with n=0 representing the start of the sequence.
     int n = 15;
-    for (int i = 0; i < n; i++) {
-      System.out.printf("%d. %d\n\n", i, fibonacci(i));
+    for (int i = 0; i <= n; i++) {
+      System.out.printf("(%d)%d  ", i, fibonacci(i));
     }
-    System.out.println(fibonacci(n));
+    System.out.printf("\n\nresult: %d\n", fibonacci(n));
   }
 
   public static int fibonacci(int n) {
-    if (n == 0) {
-      return 0;
-    }
-    if (n == 1) {
-      return 1;
-    }
+    if (n == 0) return 0;
+    if (n == 1) return 1;
     return fibonacci(n-2) + fibonacci(n-1);
   }
 }

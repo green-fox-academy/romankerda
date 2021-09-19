@@ -8,12 +8,8 @@ public class GratestCommonDivisor {
   }
 
   public static int findDivider(int a, int b, int n) {
-    if (n == a || n == b) {
-      return 1;
-    }
-    if (a % n == 0 && b % n == 0 && n > findDivider(a, b, n+1)) {
-      return n;
-    }
+    if (n == a || n == b) return 1;
+    if (a % n == 0 && b % n == 0 && n > findDivider(a, b, n+1)) return n;
     return findDivider(a, b, n+1);
   }
 }

@@ -11,14 +11,12 @@ public class SumDigits {
 //
 // Divide (/) by 10 removes the rightmost digit (e.g. 126 / 10 is 12).
 
-  int n = 123;
+  int n = 1234;
     System.out.println(sumDigits(n));
   }
 
   public static int sumDigits(int n) {
-    if (n / 10 == 0) {
-      return n % 10;
-    }
+    if (n / 10 == 0) return n % 10;
     return n % 10 + sumDigits( n / 10);
   }
 
