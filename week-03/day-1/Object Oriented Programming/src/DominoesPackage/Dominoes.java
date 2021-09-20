@@ -27,7 +27,7 @@ public class Dominoes {
       snake = makeSnake(input, sorted);
       if (snake.size() == dominoes.size()) return snake;
     }
-    return snake;
+    return null;
   }
 
    static List<Domino> makeSnake(List<Domino> input, List<Domino> sorted) {

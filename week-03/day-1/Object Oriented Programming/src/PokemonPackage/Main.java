@@ -36,7 +36,7 @@ public class Main {
 
   public static Pokemon getRightPokemon(List<Pokemon> list, Pokemon enemy) {
     for (Pokemon pokemon: list) {
-      if (pokemon.effectiveAgainst == enemy.type) return pokemon;
+      if (pokemon.isEffectiveAgainst(enemy)) return pokemon;
     }
     return null;
   }
