@@ -10,7 +10,7 @@ public class Fibonacci {
 // Define a recursive fibonacci(n) method that
 // returns the nth fibonacci number,
 // with n=0 representing the start of the sequence.
-    int n = 15;
+    int n = 4;
     for (int i = 0; i <= n; i++) {
       System.out.printf("(%d)%d  ", i, fibonacci(i));
     }
