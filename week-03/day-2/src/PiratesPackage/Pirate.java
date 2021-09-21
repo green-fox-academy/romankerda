@@ -1,3 +1,5 @@
+package PiratesPackage;
+
 public class Pirate {
 
   public enum Status {
@@ -27,7 +29,7 @@ public class Pirate {
       if (intoxication < 4) {
         System.out.println("Pour me anudder");
       } else {
-        System.out.println("Arghh, I'ma Pirate. How d'ya d'ink its goin?");
+        System.out.println("Arghh, I'ma PiratesPackage.Pirate. How d'ya d'ink its goin?");
         passOut();
         sleep();
       }

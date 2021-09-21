@@ -1,6 +1,7 @@
+package PiratesPackage;
+
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 public class PirateShip {
 
@@ -86,7 +87,7 @@ public class PirateShip {
 
   @Override
   public String toString() {
-    return "Pirate Ship " +
+    return "PiratesPackage.Pirate Ship " +
             getName().toUpperCase() +
             " { " +
             "Captain is " +

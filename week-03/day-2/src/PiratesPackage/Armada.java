@@ -1,4 +1,5 @@
-import java.sql.SQLOutput;
+package PiratesPackage;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -52,7 +53,7 @@ public class Armada {
 
   @Override
   public String toString() {
-    return "Armada{" +
+    return "PiratesPackage.Armada{" +
             "fleet=" + fleet.size() +
             '}';
   }
