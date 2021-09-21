@@ -8,6 +8,7 @@ public class Car {
   Type type;
   Color color;
 
+
   public Car(Type type, Color color) {
     this.type = type;
     this.color = color;

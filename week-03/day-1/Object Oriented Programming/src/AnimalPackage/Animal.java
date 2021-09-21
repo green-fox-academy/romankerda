@@ -26,4 +26,12 @@ public class Animal {
     this.hunger++;
     this.thirst++;
   }
+
+  @Override
+  public String toString() {
+    return "Animal{" +
+            "hunger=" + hunger +
+            ", thirst=" + thirst +
+            '}';
+  }
 }
