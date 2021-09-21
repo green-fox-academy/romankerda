@@ -6,16 +6,19 @@ public class Pirate {
   private int intoxication;
   private Status status;
   boolean hasParrot;
+  private String name;
 
 
-  public Pirate() {
+  public Pirate(String name) {
     status = Status.ALIVE;
     intoxication = 0;
+    this.name = name;
   }
 
+
+
   public void drinkSomeRum() {
-    if (status == Status.DEAD) System.out.println("he's dead");
-    else intoxication++;
+    intoxication++;
   }
 
   public void howIsItGoingMate() {
@@ -68,4 +71,23 @@ public class Pirate {
     else hasParrot = true;
   }
 
+  public int getIntoxication() {
+    return intoxication;
+  }
+
+  public Status getStatus() {
+    return status;
+  }
+
+  public void setStatus(Status status) {
+    this.status = status;
+  }
+
+  public boolean isHasParrot() {
+    return hasParrot;
+  }
+
+  public String getName() {
+    return name;
+  }
 }
