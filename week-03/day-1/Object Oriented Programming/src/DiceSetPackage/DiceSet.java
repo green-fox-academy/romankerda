@@ -56,7 +56,7 @@ public class DiceSet {
         if (diceSet.dice.get(i) == 6) count6++;
       }
     }
-    while (count6 < 3);
+    while (count6 < 2);
 
     for (int i = 0; i < 6; i++) {
       while (diceSet.dice.get(i) != 6) {
