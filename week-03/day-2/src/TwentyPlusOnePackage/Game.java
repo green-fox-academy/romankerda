@@ -20,7 +20,7 @@ public class Game {
 
     boolean finish = false;
 
-    while (!finish && hand.getValue() > 0 && hand.getValue() < 22) {
+    while (!finish && hand.getValue() < 22) {
       Scanner scanner = new Scanner(System.in);
       System.out.printf("Press nr. of your choice:  |1| - pull first card      |2| - pull last card      " +
               "|3| - pull random card      |4| - No other card, let's count!\n");
