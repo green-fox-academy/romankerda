@@ -8,8 +8,7 @@ public class Person {
 
     @Override
     public String toString() {
-      String output = super.toString();
-      return output.toLowerCase();
+      return super.toString().toLowerCase();
     }
   }
 

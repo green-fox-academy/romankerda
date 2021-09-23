@@ -9,6 +9,8 @@ public class Carrier {
   protected int ammo;
   protected int health;
 
+  
+
   public Carrier(int ammo, int health) {
     this.ammo = ammo;
     this.health = health;
