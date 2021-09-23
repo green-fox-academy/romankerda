@@ -1,4 +1,4 @@
-package com.greenfoxacademy.musicPackage;
+package com.greenfoxacademy.music;
 
 public class Violin extends StringedInstrument {
 

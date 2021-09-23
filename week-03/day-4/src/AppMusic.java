@@ -1,4 +1,4 @@
-import com.greenfoxacademy.musicPackage.*;
+import com.greenfoxacademy.music.*;
 
 public class AppMusic {
 
