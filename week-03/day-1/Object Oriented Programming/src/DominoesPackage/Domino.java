@@ -21,6 +21,7 @@ public class Domino {
 
   @Override
   public String toString() {
-    return "[" + left + ", " + right + "]";
+    return String.format("[%d, %d]", left, right);
   }
 }
+
