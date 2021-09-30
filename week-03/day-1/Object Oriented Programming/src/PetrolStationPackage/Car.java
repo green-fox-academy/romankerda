@@ -16,10 +16,7 @@ public class Car {
 
   @Override
   public String toString() {
-    return "Car{" +
-            "gasAmount=" + gasAmount +
-            ", capacity=" + capacity +
-            '}';
+    return String.format("Car{gasAmount = %d, capacity = %d}", gasAmount, capacity);
   }
 }
 
