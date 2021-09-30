@@ -5,6 +5,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Logs {
   public static void main(String[] args) {
@@ -44,6 +45,17 @@ public class Logs {
       output[i] = outputArrList.get(i);
     }
     return output;
+  }
+
+  public static String[] getIPsStream(List<String> input) {
+    List<String> outputArrList = new ArrayList<>();
+    for (String s : input) {
+      String[] lineData = s.split(" ");
+      outputArrList.add(lineData[8]);
+    }
+    return outputArrList.stream()
+            .distinct().collect(Collectors.toCollection(ArrayList::new))
+            .toArray(new String[0]);
   }
 
   public static double getGPRation(List<String> input) {

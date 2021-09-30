@@ -12,7 +12,7 @@ public class Main {
     CaB game = new CaB();
     String correctGuess = "4C0B";
     boolean guessed = false;
-    System.out.println(game.getNumberToGuess());
+//    System.out.println(game.getNumberToGuess());
 
     do {
       Scanner scanner = new Scanner(System.in);

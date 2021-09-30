@@ -56,4 +56,8 @@ public class CaB {
   public void setNumberToGuess(String numberToGuess) {
     this.numberToGuess = numberToGuess;
   }
+
+  public void setCounter(int counter) {
+    this.counter = counter;
+  }
 }
