@@ -36,9 +36,6 @@ public class Person {
 
   @Override
   public Person clone() {
-    name = this.name;
-    age = this.age;
-    gender = this.gender;
     return new Person(name, age, gender);
   }
 }
