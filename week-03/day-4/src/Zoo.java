@@ -9,8 +9,12 @@ public class Zoo {
     Bird bird = new Bird("Parrot");
 
     System.out.println("How do you breed?");
-    System.out.println("A " + reptile.getName() + " is breeding by " + reptile.breed() + ".");
-    System.out.println("A " + mammal.getName() + " is breeding by " + mammal.breed() + ".");
-    System.out.println("A " + bird.getName() + " is breeding by " + bird.breed() + ".");
+    breed(reptile);
+    breed(mammal);
+    breed(bird);
+  }
+
+  public static void breed(Animal animal) {
+    System.out.println("A " + animal.getName() + " is breeding by " + animal.breed() + ".");
   }
 }
