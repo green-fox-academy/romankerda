@@ -3,10 +3,8 @@ package exercise12;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.IntSummaryStatistics;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class Main {
@@ -43,7 +41,6 @@ public class Main {
              .filter(ch -> ch.getMass() != -1)
              .max((character1, character2) -> character1.getMass() > character2.getMass() ? 1 : -1);
 
-
     System.out.println("\nName of the heaviest character : " + heaviestCharacter.get().getName());
 
 
@@ -61,7 +58,12 @@ public class Main {
     System.out.println("\nAverage height of female characters : " + Math.round(females.getAverage()));
 
 
+    Map<String, Map<String, Long>> ageDistributionSimpleByGender = characterList.stream()
+            .collect(Collectors.groupingBy(Character::getGender,
+                    Collectors.groupingBy(Character::getAgeGroup,Collectors.counting())));
 
+    System.out.println("\nDistribution of age groups by gender :");
+    System.out.println(ageDistributionSimpleByGender);
   }
 }
 

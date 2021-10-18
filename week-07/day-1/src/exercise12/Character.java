@@ -10,6 +10,7 @@ public class Character {
   private String ezeColor;
   private String birthYear;
   private String gender;
+  private String age;
 
   public Character(String name, String height, String mass, String hairColor,
                    String skin_color, String ezeColor, String birthYear, String gender) {
@@ -54,7 +55,32 @@ public class Character {
   }
 
   public String getGender() {
-    return gender;
+    return gender.equals("male") || gender.equals("female") ? gender : "other";
+  }
+
+  public String getAgeGroup() {
+    age = this.birthYear;
+    if (age.contains("BBY")) {
+      age = birthYear.substring(0, birthYear.length() - 3);
+    }
+    if (this.age.equals("unknown")) {
+      return "unknown";
+    }
+    if (age.contains("BBY")) {
+      StringBuilder sb = new StringBuilder(this.age);
+      //sb.substring(0,sb.indexOf("."));
+      age = String.valueOf(sb.substring(0,sb.indexOf(".")));
+    }
+    if (Integer.parseInt(age) > 40) {
+      return "above 40";
+    }
+    if (Integer.parseInt(age) > 21) {
+      return "between 21 and 40";
+    }
+    return "below 21";
   }
 }
+
+
+
 
