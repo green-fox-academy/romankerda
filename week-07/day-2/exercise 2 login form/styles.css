@@ -1,0 +1,62 @@
+
+body {
+    background: rgb(202, 202, 202);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+form {
+    margin: 100px auto;
+    width: 350px;
+    background-color: white;
+    text-align: left;
+    padding: 30px 0px 40px 50px;
+    border-radius: 5px;
+}
+
+form p {
+    font-size: 25px;
+    font-weight:lighter;
+}
+
+form label {
+    font-size: 10px;  
+}
+
+form input {
+    width: 280px;
+    height: 30px;
+    display: block;
+    margin: 5px 0px 20px 0px;   
+    font-size: 20px;
+}
+
+.password {
+    margin-bottom: 0px;
+}
+
+form a {
+    width: 280px;
+    font-size: 10px;
+    font-style: normal;
+    text-align: right;
+    margin-left: 207px;
+    font-style: normal;
+    text-decoration: none;
+}
+
+form a:hover {
+    color: red;
+}
+
+form button:hover {
+    background-color: blue;
+}
+
+form button {
+    margin-top: 40px;
+    background: black;
+    padding: 10px 40px;
+    border-radius: 30px;
+    color: white;
+    font-size: 15px;
+}
