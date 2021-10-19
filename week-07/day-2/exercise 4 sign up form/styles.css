@@ -1,0 +1,118 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: rgb(230, 228, 228);
+}
+
+.container {
+    float: none;
+    margin: 50px auto;
+    background-color: white;
+    width: 700px;
+    height: 560px;
+    border-radius: 5px;
+    box-shadow: 0px 4px 6px rgb(172, 172, 172)
+}
+
+ul {
+    padding-left: 20px;
+}
+
+div {
+    float: left;
+    width: 37%;
+    margin: 0px 0px 10px 20px;
+    padding: 0px;
+}
+
+div.or {
+    margin: 280px 0px 0px 40px;
+    width: 60px;
+}
+
+span {
+    padding: 15px 11px;
+    width: 60px;
+    height: 60px;
+    background-color: rgb(216, 216, 216);
+    border-radius: 60px;
+    margin: 0;
+    font-size: 22px;
+    font-weight: 100;
+    box-shadow: 0px 3px 5px rgb(172, 172, 172)
+}
+.description {
+    margin-top: 40px;
+    font-size: 35px;
+}
+
+.loginbuttons {
+    margin-top: 180px;
+}
+
+p {
+    text-align: left;
+}
+
+li {
+    margin-bottom: 40px;
+    list-style-type: none;
+    text-align: left;
+    font-size: 25px;  
+}
+
+.loginbuttons li {
+    margin-bottom: 25px;
+    list-style-type: none; 
+    border-radius: 3px;
+}
+
+.signup input {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid grey;
+    width: 100%;
+    font-size: 20px;
+    padding-bottom: 10px;
+}
+
+.signup input:focus {
+    outline: none;
+    border-bottom: 2px solid green;
+}
+
+button {
+    background: green;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 5px;
+    border: none;
+    margin-top: 15px;
+    font-size: 18px;
+}
+
+.loginbuttons li {
+    padding: 10px 15px;
+    font-size: 17px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.facebook {
+    background-color: rgba(18, 52, 240, 0.897);
+    color: white;
+    
+}
+.twitter {
+    background-color: rgb(0, 132, 255);
+    color: white;
+
+}
+.google {
+    background-color: rgba(216, 24, 33, 0.842);
+    color: white;
+
+}
