@@ -1,0 +1,66 @@
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+table caption, td, th {
+    padding: 10px 5px;
+}
+
+td, th {
+    border: 1px solid #333;
+}
+
+.dark th {
+    background-color: #333;
+    color: #ccc;
+}
+
+.light th {
+    background-color: #fff;
+    color: #000;  
+}
+
+tfoot {
+    font-size: 80%;
+}
+
+tbody tr:nth-child(odd){
+    background-color: #ccc;
+}
+
+.rounded-corners {
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.rounded-corners thead tr:first-child th:first-child {
+    border-top-left-radius: 15px;
+}
+
+.rounded-corners thead tr:first-child th:last-child {
+    border-top-right-radius: 15px;
+}
+
+.rounded-corners tfoot tr:last-child td:first-child {
+    border-bottom-left-radius: 15px;
+}
+
+.rounded-corners tfoot tr:last-child td:last-child {
+    border-bottom-right-radius: 15px;
+}
+
+
+form {
+    margin-top: 50px;
+}
