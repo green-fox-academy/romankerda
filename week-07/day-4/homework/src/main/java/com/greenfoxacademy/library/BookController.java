@@ -28,7 +28,6 @@ public class BookController {
         } else {
             queriedBooks = books;
         }
-
         model.addAttribute("books", queriedBooks);
         return "index";
     }
@@ -38,8 +37,6 @@ public class BookController {
                 .filter(book -> book.getAuthor().equals(author))
                 .collect(Collectors.toList());
     }
-
-
 
     @RequestMapping(path = "/books/{id}/details", method = RequestMethod.GET)
     public String getBookById(Model model, @PathVariable(name="id") Integer id) {
