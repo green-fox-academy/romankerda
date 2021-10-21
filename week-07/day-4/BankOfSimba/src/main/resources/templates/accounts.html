@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Thymeleaf Exercise #</title>
+    <link rel="stylesheet" th:href="@{/style.css}" />
+    <meta charset="utf-8" />
+</head>
+<body>
+    <h4>Bank accounts information</h4>
+        <table>
+            <thead>
+                <th>Index</th>
+                <th>Name</th>
+                <th>Balance</th>
+                <th>Currency</th>
+                <th>Owner</th>
+                <th></th>
+            </thead>
+            <tbody>
+                <tr th:each="account : ${accountsList}" th:object="${account}">
+                    <td th:text="${accountStat.index}"></td>
+                    <td th:text="*{name}"></td>
+                    <td th:text="*{#numbers.formatDecimal(balance, 0, 2, 'POINT')} + ' ' + *{animalType.toString().toLowerCase()}"></td>
+                    <td th:text="*{animalType.toString().toLowerCase()}"></td>
+                    <td class="king" th:if="${account.isKing}">KING</td>
+                    <td th:unless="${account.isKing}"></td>
+                    <td class="button">
+                        <form th:action="@{|/raise/${accountStat.index}|}" method="post">
+                            <button type="submit">raise balance</button>
+                        </form>
+                    </td>
+                </tr>
+                <tr>
+                    <td><br></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <form action="/add-new-account" method="post">
+                        <td></td>
+                        <td><input type="text" id="name" name="name" required="true" placeholder="Add name"></td>
+                        <td><input type="number" id="balance" name="balance" required="true" placeholder="Add amount"></td>
+                        <td>
+                            <select name="animalType" id="animalType">
+                                <option th:each="animalType : ${types}" th:value="${animalType}"
+                                        th:text="${animalType.toString().toLowerCase()}" required>
+                                </option>
+                            </select>
+                        </td>
+                        <td>
+                            <label for="king">yes</label><input type="radio" id="king" name="isKing" value="true" required>
+                            <label for="no-king">no</label><input type="radio" id="no-king" name="isKing" value="false">
+                        </td>
+
+                        <td class="button"><button type="submit">Create New Account</button></td>
+                    </form>
+                </tr>
+            </tbody>
+        </table>
+
+
+
+</body>
+</html>

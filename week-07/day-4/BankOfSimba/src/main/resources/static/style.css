@@ -1,0 +1,45 @@
+body {
+    background: lightgoldenrodyellow;
+    padding-left: 50px;
+}
+
+table {
+    text-align: left;
+    border-collapse: collapse;
+    background: floralwhite;
+    box-shadow: 5px 5px 5px grey;
+}
+h4 {
+    color: darkblue;
+    font-size: 30px;
+}
+th, td {
+    padding: 5px 10px;
+    border: 1px solid black;
+}
+
+tr:hover {
+    background: chocolate;
+}
+
+td:first-child {
+    text-align: center;
+}
+td:last-child, th:last-child {
+    border: none;
+    background: none;
+
+}
+td.button {
+    text-align: left;
+}
+
+.king {
+    color: red;
+    font-weight: bold;
+}
+
+th {
+    background: cornflowerblue;
+    color: white;
+}
