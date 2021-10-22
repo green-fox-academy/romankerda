@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/style.css}" />
+    <title>My Shop</title>
+</head>
+<body>
+    <div class="wrap">
+        <div class="top-nav">
+            <a th:href="@{/webshop}">My Shop</a>
+            <a th:href="@{/more-filters}">More >></a>
+
+        </div>
+
+        <div class="nav">
+            <div class="naviButtons1">
+                <a th:href="@{/only-available}">ONLY AVAILABLE</a>
+                <a th:href="@{/cheapest-first}">CHEAPEST FIRST</a>
+                <a th:href="@{/contains-nike}">CONTAINS NIKE</a>
+                <a th:href="@{/average-stock}">AVERAGE STOCK</a>
+                <a th:href="@{/most-expensive}">MOST EXPENSIVE AVAILABLE</a>
+            </div>
+        </div>
+
+        <div class="search"><br>
+            <label for="search">Search for:</label>
+            <form th:action="@{/search}" method="post">
+                <input type="text"  id="search"  name="string" autofocus placeholder="...something like nike"/>
+                <button type="submit">Search</button>
+            </form>
+        </div>
+
+
+        <div th:if="${format.equals('mostExp')}">
+            <h2 th:text="'Most expensive:'"></h2>
+        </div>
+        <div th:if="${format.equals('mostExp') || format.equals('table')}">
+
+            <div class="table">
+                <table >
+                    <thead>
+                    <tr>
+                        <th class="row1">Name</th>
+                        <th class="row2">Description</th>
+                        <th class="row3">Price</th>
+                        <th class="row4">Qty on stock</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="item : ${list}" th:object="${item}">
+                        <td class="row1" th:text="*{name}"></td>
+                        <td class="row2"th:text="*{description}"></td>
+                        <td th:if="${currency.equals('eur')}" class="row3" th:text="*{#numbers.formatDecimal(price, 0, 2, 'POINT')} + ' €'"></td>
+                        <td th:unless="${currency.equals('eur')}" class="row3"th:text="*{#numbers.formatDecimal(price, 0, 2, 'POINT')} + ' CzK'"></td>
+                        <td class="row4"th:text="*{qty}"></td>
+                    </tr>
+                    </tbody>
+                </table>
+             </div>
+        </div>
+
+        <div th:if="${format.equals('avgStock')}">
+            <h2 th:text="'Average stock: ' + ${avgStock}"></h2>
+        </div>
+    </div>
+
+
+
+</body>
+</html>

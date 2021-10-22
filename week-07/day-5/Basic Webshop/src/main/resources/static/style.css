@@ -1,0 +1,174 @@
+body {
+    font-family: Arial;
+    background: navajowhite;
+    width:70%;
+    margin: 50px auto;
+}
+
+.top-nav  {
+    color: steelblue;
+    font-size: 50px;
+    border-bottom: 3px solid steelblue;
+    padding-bottom: 5px;
+    margin: 5px;
+    display: flex;
+    justify-content: space-between;
+    text-decoration: none;
+}
+
+.top-nav a {
+    text-decoration: none;
+    color: steelblue;
+    font-weight: bold;
+}
+
+h2 {
+    background: navajowhite;
+    font-size: 40px;
+}
+
+.naviButtons1, .search form {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.search label {
+    font-size: 20px;
+    color: darkred;
+}
+
+.search form {
+    margin: 0px;
+    align-items: center;
+}
+
+.search input {
+    width: 80%;
+    height: 40px;
+    font-size: 30px;
+    padding: 5px 30px;
+    border-radius: 5px;
+    background: antiquewhite;
+    border: 2px solid grey;
+}
+
+.search input:focus {
+    outline: none;
+    border: 2px solid darkred;
+
+}
+
+.filter-by-price input {
+    width: 200px;
+    height: 60px;
+    font-size: 50px;
+    padding: 5px 30px;
+    border-radius: 5px;
+    background: antiquewhite;
+    border: 2px solid grey;
+    margin-left: 10px;
+    text-align: right;
+}
+
+.filter-by-price input:focus {
+    outline: none;
+    border: 2px solid darkred;
+
+}
+.filter-by-price ul label {
+    font-size: 20px;
+    color: darkred;
+    padding-left: 15px;
+    text-align: left;
+}
+
+.filter-by-price ul span {
+    text-align: left;
+}
+
+.filter-by-price ul {
+    display: flex;
+    margin: 20px 0px 10px;
+    padding: 0px 5px;
+    text-align: center;
+}
+.filter-by-price ul a {
+    background: darkred;
+    color: antiquewhite;
+    border-radius: 5px;
+    font-weight: bold;
+    text-decoration: none;
+    width: 30%;
+    margin: 25px 10px 0px 0px;
+    padding-top: 30px;
+}
+
+
+
+
+.naviButtons1 a {
+    background: darkred;
+    padding: 10px 10px;
+    margin: 5px;
+    color: antiquewhite;
+    border-radius: 5px;
+    font-weight: bold;
+    text-decoration: none;
+    width: 20%;
+}
+
+button {
+    background: darkred;
+    padding: 10px 10px;
+    margin: 5px;
+    color: antiquewhite;
+    border-radius: 5px;
+    font-weight: bold;
+    text-decoration: none;
+    width: 120px;
+    font-size: 25px;
+    border: none;
+    padding: 12px 5px;
+}
+
+.table {
+    margin: 25px auto;
+    background: blanchedalmond;
+    width: 100%;
+    border-radius: 5px;
+    font-size: 20px;
+
+}
+
+td {
+    padding: 10px 0px;
+    color: steelblue;
+}
+
+td.row3, td.row4 {
+    text-align:center;
+}
+
+
+.table thead th {
+    background: steelblue;
+    border-radius: 5px;
+    color: antiquewhite;
+}
+
+.table thead th.row1 {
+    width:20%;
+}
+.table thead th.row2 {
+    width:30%;
+}
+.table thead th.row3 {
+    width:20%;
+}
+.table thead th.row4 {
+    width:10%;
+}
+
+
