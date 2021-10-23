@@ -48,6 +48,7 @@ h2 {
     width: 80%;
     height: 40px;
     font-size: 30px;
+    color: darkred;
     padding: 5px 30px;
     border-radius: 5px;
     background: antiquewhite;
@@ -60,53 +61,46 @@ h2 {
 
 }
 
-.filter-by-price input {
-    width: 200px;
-    height: 60px;
-    font-size: 50px;
-    padding: 5px 30px;
-    border-radius: 5px;
-    background: antiquewhite;
-    border: 2px solid grey;
-    margin-left: 10px;
-    text-align: right;
-}
-
-.filter-by-price input:focus {
-    outline: none;
-    border: 2px solid darkred;
-
-}
-.filter-by-price ul label {
-    font-size: 20px;
-    color: darkred;
-    padding-left: 15px;
-    text-align: left;
-}
-
-.filter-by-price ul span {
-    text-align: left;
-}
-
-.filter-by-price ul {
+.filter-by-price form {
     display: flex;
-    margin: 20px 0px 10px;
-    padding: 0px 5px;
-    text-align: center;
+    justify-content: space-between;
+    margin-top: 20px;
 }
-.filter-by-price ul a {
+
+.filter-by-price form input{
     background: darkred;
     color: antiquewhite;
+    font-size: 20px;
+    padding: 20px 50px;
+    margin: 5px 0px 0px 5px;
+    border: none;
     border-radius: 5px;
-    font-weight: bold;
-    text-decoration: none;
-    width: 30%;
-    margin: 25px 10px 0px 0px;
-    padding-top: 30px;
+    align-self: end;
+    vertical-align: center;
 }
 
+.filter-by-price label {
+    color: darkred;
+    padding: 0px 0px 10px 10px;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
 
-
+.filter-by-price input.price {
+    width: 350px;
+    background: antiquewhite;
+    border: 2px solid grey;
+    font-size: 40px;
+    padding: 8px 60px 8px 0px;
+    text-align: right;
+    color: darkred;
+    -webkit-appearance: none;
+}
+.filter-by-price input.price:focus {
+    outline: none;
+    border: 2px solid darkred;
+    border-radius: 10px;
+}
 
 .naviButtons1 a {
     background: darkred;
@@ -139,7 +133,6 @@ button {
     width: 100%;
     border-radius: 5px;
     font-size: 20px;
-
 }
 
 td {
@@ -151,7 +144,6 @@ td.row3, td.row4 {
     text-align:center;
 }
 
-
 .table thead th {
     background: steelblue;
     border-radius: 5px;
@@ -162,7 +154,7 @@ td.row3, td.row4 {
     width:20%;
 }
 .table thead th.row2 {
-    width:30%;
+    width:35%;
 }
 .table thead th.row3 {
     width:20%;

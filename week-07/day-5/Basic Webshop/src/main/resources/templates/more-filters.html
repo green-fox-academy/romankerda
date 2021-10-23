@@ -9,7 +9,7 @@
 <div class="wrap">
     <div class="top-nav">
         <a th:href="@{/webshop}">My Shop</a>
-        <a th:href="@{/more-filters}">More >></a>
+        <a th:href="@{/webshop}">More >></a>
 
     </div>
 
@@ -25,17 +25,17 @@
 
     <div class="filter-by-price">
 <!--        <form th:action="@{/filter-by-price}" method="post">-->
-            <ul>
-                <a>ABOVE</a>
-                <a>BELOW</a>
-                <a>EXACTLY</a>
+            <form th:action="@{/filter-by-price}" method="get">
+                <button type=submit onclick="return false;" style="display:none;"></button>
+                <input type="submit" name="type" value="ABOVE">
+                <input type="submit" name="type" value="BELOW">
+                <input type="submit" name="type" value="EXACT">
                 <span>
-                    <label for="search">Filter by price:</label><br>
-                    <input type="double"  id="search"  name="string" autofocus placeholder="...price"/>
-
+                    <label for="price">Filter by price:</label><br>
+                    <input class="price" type="number" step="0.01"  id="price"  name="price" required autofocus placeholder="..enter the price   ">
                 </span>
 
-            </ul>
+            </form>
 <!--        </form>-->
     </div>
 
@@ -59,10 +59,10 @@
                 <tbody>
                 <tr th:each="item : ${list}" th:object="${item}">
                     <td class="row1" th:text="*{name}"></td>
-                    <td class="row5"th:text="*{type}"></td>
+                    <td class="row5" th:text="*{type}"></td>
                     <td class="row2"th:text="*{description}"></td>
-                    <td th:if="${currency.equals('eur')}" class="row3" th:text="*{#numbers.formatDecimal(price, 0, 2, 'POINT')} + ' €'"></td>
-                    <td th:unless="${currency.equals('eur')}" class="row3"th:text="*{#numbers.formatDecimal(price, 0, 2, 'POINT')} + ' CzK'"></td>
+                    <td th:if="${currency.equals('eur')}" class="row3" th:text="*{#numbers.formatDecimal(price, 2, 2, 'POINT')} + ' €'"></td>
+                    <td th:unless="${currency.equals('eur')}" class="row3"th:text="*{#numbers.formatDecimal(price, 2, 2, 'POINT')} + ' CzK'"></td>
                     <td class="row4"th:text="*{qty}"></td>
                 </tr>
                 </tbody>

@@ -85,7 +85,7 @@ public class ShopItemService {
       return list;
     } else {
       for (ShopItem item : list) {
-        item.setPrice(item.getPrice() / 25.7);
+        item.setPrice((double)Math.round((item.getPrice() / 25.7) * 100) / 100);
       }
       currency = "eur";
       return list;
@@ -97,10 +97,29 @@ public class ShopItemService {
       return list;
     } else {
       for (ShopItem item : list) {
-        item.setPrice(item.getPrice() * 25.7);
+        item.setPrice(Math.round(item.getPrice() * 25.7));
       }
       currency = "czk";
       return list;
     }
+  }
+
+  public List<ShopItem> getSearchPrice(Double value, String type) {
+    if (type.equals("EXACT")) {
+      return list.stream()
+              .filter(i -> i.getPrice() == value)
+              .collect(Collectors.toList());
+    }
+    if (type.equals("BELOW")) {
+      return list.stream()
+              .filter(i -> i.getPrice() < value)
+              .collect(Collectors.toList());
+    }
+    if (type.equals("ABOVE")) {
+      return list.stream()
+              .filter(i -> i.getPrice() > value)
+              .collect(Collectors.toList());
+    }
+    return null;
   }
 }

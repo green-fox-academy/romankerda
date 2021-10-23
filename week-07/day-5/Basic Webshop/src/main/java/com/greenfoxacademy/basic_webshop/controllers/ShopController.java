@@ -100,13 +100,14 @@ public class ShopController {
     return "more-filters";
   }
 
-//  @PostMapping(value ="/filter-by-price")
-//  public String search(Model model, @RequestParam("string") String text) {
-//    model.addAttribute("list", shopItemService.getSearch(text));
-//    model.addAttribute("format", "table");
-//    model.addAttribute("currency", shopItemService.getCurrency());
-//    return "index";
-//  }
+  @GetMapping(value ="/filter-by-price")
+  public String searchPriceExactly(Model model,@RequestParam("type") String typeSearch, @RequestParam("price") Double price) {
+
+    model.addAttribute("list", shopItemService.getSearchPrice(price, typeSearch));
+    model.addAttribute("format", "table");
+    model.addAttribute("currency", shopItemService.getCurrency());
+    return "more-filters";
+  }
 
 
 
