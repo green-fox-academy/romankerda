@@ -1,14 +1,21 @@
 package com.greenfoxacademy.basic_webshop.controllers;
 
 import com.greenfoxacademy.basic_webshop.services.ShopItemService;
+import com.greenfoxacademy.basic_webshop.services.ShopItemServiceImpl;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class ShopController {
-  ShopItemService shopItemService = new ShopItemService();
+  ShopItemService shopItemService = new ShopItemServiceImpl();
 
+
+
+  @GetMapping(value ="/")
+  public String start() {
+    return "redirect:/webshop";
+  }
   @GetMapping(value ="/webshop")
   public String webshop(Model model) {
     model.addAttribute("list", shopItemService.getAll());
@@ -108,7 +115,4 @@ public class ShopController {
     model.addAttribute("currency", shopItemService.getCurrency());
     return "more-filters";
   }
-
-
-
 }
