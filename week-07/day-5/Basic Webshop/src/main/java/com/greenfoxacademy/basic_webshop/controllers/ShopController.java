@@ -2,15 +2,16 @@ package com.greenfoxacademy.basic_webshop.controllers;
 
 import com.greenfoxacademy.basic_webshop.services.ShopItemService;
 import com.greenfoxacademy.basic_webshop.services.ShopItemServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class ShopController {
-  ShopItemService shopItemService = new ShopItemServiceImpl();
 
-
+  @Autowired
+  ShopItemService shopItemService;
 
   @GetMapping(value ="/")
   public String start() {

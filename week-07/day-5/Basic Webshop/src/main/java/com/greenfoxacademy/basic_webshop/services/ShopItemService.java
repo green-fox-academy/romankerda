@@ -1,11 +1,13 @@
 package com.greenfoxacademy.basic_webshop.services;
 
 import com.greenfoxacademy.basic_webshop.models.ShopItem;
+import org.springframework.stereotype.Component;
 
 import java.lang.reflect.Array;
 import java.util.*;
 import java.util.stream.Collectors;
 
+@Component
 public interface ShopItemService {
 
 

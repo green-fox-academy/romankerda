@@ -1,10 +1,12 @@
 package com.greenfoxacademy.basic_webshop.services;
 
 import com.greenfoxacademy.basic_webshop.models.ShopItem;
+import org.springframework.stereotype.Component;
 
 import java.util.*;
 import java.util.stream.Collectors;
 
+@Component
 public class ShopItemServiceImpl implements ShopItemService {
 
   private List<ShopItem> list;
