@@ -168,6 +168,16 @@ SELECT title, MAX(stars)
 FROM rating
          INNER JOIN movie ON movie.mid = rating.mid
 GROUP BY title
-HAVING COUNT(*) > 1
 ORDER BY title ASC;
+
+
+# For each movie, return the title and the ‘rating spread’, that is, the difference between highest
+# and lowest ratings given to that movie. Sort by rating spread from highest to lowest,
+# then by movie title.
+
+SELECT title, MAX(stars) - MIN(stars) AS spread
+FROM rating
+         LEFT JOIN movie ON movie.mid = rating.mid
+GROUP BY title
+ORDER BY spread DESC, title ASC;
 
