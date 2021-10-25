@@ -160,3 +160,14 @@ WHERE l.stars < r.stars
   AND l.mid = r.mid
 ORDER BY l.rid ASC, l.ratingdate ASC;
 
+
+# For each movie that has at least one rating, find the highest number of stars that movie received.
+# Return the movie title and number of stars. Sort by movie title.
+
+SELECT title, MAX(stars)
+FROM rating
+         INNER JOIN movie ON movie.mid = rating.mid
+GROUP BY title
+HAVING COUNT(*) > 1
+ORDER BY title ASC;
+
