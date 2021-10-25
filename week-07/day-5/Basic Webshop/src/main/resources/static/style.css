@@ -71,7 +71,7 @@ h2 {
     background: darkred;
     color: antiquewhite;
     font-size: 20px;
-    padding: 20px 50px;
+    padding: 20px 10px;
     margin: 5px 0px 0px 5px;
     border: none;
     border-radius: 5px;
@@ -91,7 +91,7 @@ h2 {
     background: antiquewhite;
     border: 2px solid grey;
     font-size: 40px;
-    padding: 8px 60px 8px 0px;
+    padding: 8px 20px 8px 0px;
     text-align: right;
     color: darkred;
     -webkit-appearance: none;
@@ -161,6 +161,16 @@ td.row3, td.row4 {
 }
 .table thead th.row4 {
     width:10%;
+}
+
+td:first-child {
+    padding-left: 5px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 
