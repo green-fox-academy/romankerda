@@ -5,7 +5,7 @@
 `11`| []()  | []() | []() | []() | []()
 `10`| []()  | []() | []() | []() | []()
 `09`| []()  | []() | []() | []() | []()
-`08`| [`SQL`](https://github.com/green-fox-academy/romankerda/tree/master/week-08/day-1)  | []() | []() | []() | []()
+`08`| [`SQL`](https://github.com/green-fox-academy/romankerda/tree/master/week-08/day-1)  | [`DI`](https://github.com/green-fox-academy/romankerda/tree/master/week-08/day-2) | []() | []() | []()
 `07`| [`Streams`](https://github.com/green-fox-academy/romankerda/tree/master/week-07/day-1/src)  | [`Tables Forms`](https://github.com/green-fox-academy/romankerda/tree/master/week-07/day-2) | [`Intro to Spring`](https://github.com/green-fox-academy/romankerda/tree/master/week-07/day-3) | [`Bank of Simba`](https://github.com/green-fox-academy/romankerda/tree/master/week-07/day-4) | [`Basic Webshop`](https://github.com/green-fox-academy/romankerda/tree/master/week-07/day-5)
 `06`|   |     
 `05`| [ `Wanderer Game`](https://github.com/romankerda/wanderer-java.git) | [ ](https://www.example.com) | [ ](https://www.example.com) | [ ](https://www.example.com) | [`exam`](https://github.com/romankerda/canaSpears-foundation-normal-exam.git)
