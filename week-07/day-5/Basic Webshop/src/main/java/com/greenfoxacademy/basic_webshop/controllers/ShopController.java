@@ -9,9 +9,12 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class ShopController {
+  private ShopItemService shopItemService;
 
   @Autowired
-  ShopItemService shopItemService;
+  public void ShopController(ShopItemService shopItemService) {
+    this.shopItemService = shopItemService;
+  }
 
   @GetMapping(value ="/")
   public String start() {

@@ -2,6 +2,7 @@ package com.greenfoxacademy.basic_webshop.services;
 
 import com.greenfoxacademy.basic_webshop.models.ShopItem;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
 
 import java.lang.reflect.Array;
 import java.util.*;
