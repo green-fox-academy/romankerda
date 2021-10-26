@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Check Student name</title>
+</head>
+<body>
+<p th:if="${isOnList}"  th:text="${name} + '   is already on the list'"> </p>
+<p th:unless="${isOnList}" th:text="${name} + '   is not yet on the list.'"></p>
+<br>
+<br>
+<a th:href="@{/gfa}">main page</a>
+</body>
+</html>

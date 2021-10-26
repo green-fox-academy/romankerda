@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Check mail format</title>
+</head>
+<body>
+<p th:if="${isEmail}" style="color: green;" th:utext="${email} + '   is a valid email address.'"> </p>
+<p th:unless="${isEmail}" style="color: red;" th:text="${email} + '   is not a valid email address.'"></p>
+<br>
+<br>
+<a th:href="@{/useful}">main page</a>
+</body>
+</html>

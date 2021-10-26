@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Useful Utilities</title>
+</head>
+<body>
+<h1>Useful utilities links:</h1>
+
+<a th:href="@{/useful/colored}">Colored Background</a>
+<br>
+<br>
+<form th:action="@{/useful/email}" method="get">
+    <input type="text" id="check" name="check" required placeholder="..enter email to check">
+    <button type="submit">Check</button>
+</form>
+<br>
+<br>
+<form th:action="@{/useful/caesar}" method="get">
+    <input type="text" id="text" name="text" required placeholder="...enter text..">
+    <input type="number" style="width:40px;" min="1" max="99" id="number" name="number" required placeholder="nr.">
+    <button type="submit" name="type" value="ENCODE">ENCODE</button>
+    <button type="submit" name="type" value="DECODE">DECODE</button>
+</form>
+</body>
+</html>
