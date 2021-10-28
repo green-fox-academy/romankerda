@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Programmer Fox Club</title>
+</head>
+<body>
+    <ul>
+        <li><a th:href="@{/(name=${fox.getName()})}">Information</a></li>
+        <li><a th:href="@{/nutritionStore(name=${fox.getName()})}">Nutrition Store</a></li>
+        <li><a th:href="@{/trickCenter(name=${fox.getName()})}">Trick Center</a></li>
+    </ul>
+
+    <img src="greenfox.png">
+
+    <div th:if="${name.equals('notPresent')}">
+        <span th:text="'Please '"></span><span><a th:href="@{/login}">login</a></span>
+            <span th:text="' to be able to see information regarding fox.'"></span></span>
+    </div>
+    <p th:if="${name.equals('present')}" th:object="${fox}" th:text="'This is ' + *{name} + '. Currently living on ' + ${fox.food.getName()} + ' and ' + ${fox.drink.getName()} + '. He knows ' + *{tricks.size()} + ' tricks.'"></p>
+
+    <div th:if="${name.equals('present')}">
+        <h2>Known tricks</h2>
+        <p th:if="${fox.tricks.isEmpty()}"  th:text="'You know no trick. Go and learn some.'"></p>
+        <ul th:object="${fox}">
+            <li th:each="i : ${fox.getTricks()}" th:text="${i.getName()}"></li>
+        </ul>
+    </div>
+
+</body>
+</html>
