@@ -8,7 +8,7 @@ public class Exercise5 {
     List<Integer> numbers = Arrays.asList(5, 9, 1, 2, 3, 7, 5, 6, 7, 3, 7, 6, 8, 5, 4, 9, 6, 2);
 
     int sum = numbers.stream()
-            .filter(n -> n % 2 == 0)
+            .filter(n -> n % 2 != 0)
             .mapToInt(n -> n)
     //      .reduce(0, Integer::sum);
             .sum();
