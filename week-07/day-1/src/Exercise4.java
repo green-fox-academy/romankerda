@@ -1,10 +1,6 @@
-import jdk.swing.interop.SwingInterOpUtils;
-import org.w3c.dom.ls.LSOutput;
 
-import java.sql.SQLOutput;
 import java.util.Arrays;
 import java.util.List;
-import java.util.OptionalDouble;
 
 public class Exercise4 {
   public static void main(String[] args) {

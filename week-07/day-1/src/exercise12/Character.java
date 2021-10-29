@@ -1,57 +1,47 @@
 package exercise12;
 
+import javax.sound.sampled.Line;
+
 public class Character {
 
   private String name;
-  private String height;
-  private String mass;
+  private int height;
+  private int mass;
   private String hairColor;
   private String skin_color;
-  private String ezeColor;
+  private String eyeColor;
   private String birthYear;
   private String gender;
   private String age;
 
-  public Character(String name, String height, String mass, String hairColor,
-                   String skin_color, String ezeColor, String birthYear, String gender) {
-    this.name = name;
-    this.height = height;
-    this.mass = mass;
-    this.hairColor = hairColor;
-    this.skin_color = skin_color;
-    this.ezeColor = ezeColor;
-    this.birthYear = birthYear;
-    this.gender = gender;
+  public Character(String line) {
+    String[] charArr = line.split(";");
+    this.name = charArr[0];
+    this.height = parseValue(charArr[1]);
+    this.mass = parseValue(charArr[2]);
+    this.hairColor = charArr[3];
+    this.skin_color = charArr[4];
+    this.eyeColor = charArr[5];
+    this.birthYear = charArr[6];
+    this.gender = charArr[7];
   }
 
-  public int getMass() {
-    if (this.mass.matches("[0-9,]+")) {
-      if (this.mass.indexOf(',') != -1) {
-        StringBuilder sb = new StringBuilder(this.mass);
-        sb.deleteCharAt(sb.indexOf(","));
-        return Integer.parseInt(String.valueOf(sb));
+    private int parseValue(String string){
+      if (string.matches("[0-9,]+")) {
+        if (string.indexOf(',') != -1) {
+          StringBuilder sb = new StringBuilder(string);
+          sb.deleteCharAt(sb.indexOf(","));
+          return Integer.parseInt(String.valueOf(sb));
+        }
+        return Integer.parseInt(string);
+      } else {
+        return -1;
       }
-      return Integer.parseInt(mass);
-    } else {
-      return -1;
     }
-  }
+
 
   public String getName() {
     return name;
-  }
-
-  public int getHeight() {
-    if (this.height.matches("[0-9,]+")) {
-      if (this.height.indexOf(',') != -1) {
-        StringBuilder sb = new StringBuilder(this.height);
-        sb.deleteCharAt(sb.indexOf(","));
-        return Integer.parseInt(String.valueOf(sb));
-      }
-      return Integer.parseInt(height);
-    } else {
-      return -1;
-    }
   }
 
   public String getGender() {
@@ -66,18 +56,21 @@ public class Character {
     if (this.age.equals("unknown")) {
       return "unknown";
     }
-    if (age.contains("BBY")) {
-      StringBuilder sb = new StringBuilder(this.age);
-      //sb.substring(0,sb.indexOf("."));
-      age = String.valueOf(sb.substring(0,sb.indexOf(".")));
-    }
-    if (Integer.parseInt(age) > 40) {
+    if (Double.parseDouble(age) > 40) {
       return "above 40";
     }
-    if (Integer.parseInt(age) > 21) {
+    if (Double.parseDouble(age) > 21) {
       return "between 21 and 40";
     }
     return "below 21";
+  }
+
+  public int getHeight() {
+    return height;
+  }
+
+  public int getMass() {
+    return mass;
   }
 }
 

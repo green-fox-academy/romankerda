@@ -26,9 +26,7 @@ public class Main {
     try {
       List<String> fileLines = Files.readAllLines(Paths.get(inputFile));
       for (String line : fileLines) {
-        String[] charArr = line.split(";");
-        Character character = new Character(charArr[0], charArr[1], charArr[2],
-                charArr[3], charArr[4], charArr[5], charArr[6], charArr[7]);
+       Character character = new Character(line);
         characterList.add(character);
       }
       characterList.remove(0);
