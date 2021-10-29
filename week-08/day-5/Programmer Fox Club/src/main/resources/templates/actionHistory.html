@@ -6,14 +6,9 @@
 </head>
 <body>
 
-    <ul>
-        <li><a th:href="@{/(name=${fox.getName()})}">Information</a></li>
-        <li><a th:href="@{/nutritionStore(name=${fox.getName()})}">Nutrition Store</a></li>
-        <li><a th:href="@{/trickCenter(name=${fox.getName()})}">Trick Center</a></li>
-        <li><a th:href="@{/actionHistory(name=${fox.getName()})}">Action History</a></li>
-    </ul>
+    <div th:insert="fragments/header :: header"></div>
 
-<h2>Action History</h2>
+    <h2>Action History</h2>
 
 
     <ul th:object="${fox}">

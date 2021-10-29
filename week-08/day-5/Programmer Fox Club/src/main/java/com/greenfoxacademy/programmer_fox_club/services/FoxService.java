@@ -98,7 +98,7 @@ public class FoxService {
     if (!actualFox.getActionHistory().isEmpty()) {
       return actualFox.getActionHistory().subList(start, actualFox.getActionHistory().size());
     }
-    return new ArrayList<String>();
+    return actualFox.getActionHistory();
   }
 
 }

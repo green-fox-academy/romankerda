@@ -5,12 +5,7 @@
     <title>Programmer Fox Club</title>
 </head>
 <body>
-    <ul>
-        <li><a th:href="@{/(name=${fox.getName()})}">Information</a></li>
-        <li><a th:href="@{/nutritionStore(name=${fox.getName()})}">Nutrition Store</a></li>
-        <li><a th:href="@{/trickCenter(name=${fox.getName()})}">Trick Center</a></li>
-        <li><a th:href="@{/actionHistory(name=${fox.getName()})}">Action History</a></li>
-    </ul>
+    <div th:insert="fragments/header :: header"></div>
 
     <img src="greenfox.png">
 
@@ -31,7 +26,8 @@
     <h2>Action History</h2>
 
     <ul>
-        <li th:each="i : ${historyShort}" th:text="${i}"></li>
+        <li th:unless="${historyShort.isEmpty()}" th:each="i : ${historyShort}" th:text="${i}"></li>
+        <li th:if="${historyShort.isEmpty()}" th:text="'No actions have been performed yet.'"></li>
     </ul>
 
 </body>
