@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -11,10 +12,11 @@ public class Exercise6 {
     String input = "Write a Stream Expression to find the uppercase characters in a string!";
     char[] inputArr = input.toCharArray();
 
-    Object[] output = input.chars()
+
+    List<Character> output = input.chars()
             .filter(Character::isUpperCase)
             .mapToObj(ch -> (char)ch)
-            .toArray();
+            .collect(Collectors.toList());
 
     System.out.println(Arrays.asList(output));
   }
