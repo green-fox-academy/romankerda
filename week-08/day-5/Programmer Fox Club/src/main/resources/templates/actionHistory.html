@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Trick Center</title>
+</head>
+<body>
+
+    <ul>
+        <li><a th:href="@{/(name=${fox.getName()})}">Information</a></li>
+        <li><a th:href="@{/nutritionStore(name=${fox.getName()})}">Nutrition Store</a></li>
+        <li><a th:href="@{/trickCenter(name=${fox.getName()})}">Trick Center</a></li>
+        <li><a th:href="@{/actionHistory(name=${fox.getName()})}">Action History</a></li>
+    </ul>
+
+<h2>Action History</h2>
+
+
+    <ul th:object="${fox}">
+        <li th:each="i : ${fox.getActionHistory()}" th:text="${i}"></li>
+    </ul>
+
+
+
+</body>
+</html>
