@@ -9,6 +9,7 @@
         <li><a th:href="@{/(name=${fox.getName()})}">Information</a></li>
         <li><a th:href="@{/nutritionStore(name=${fox.getName()})}">Nutrition Store</a></li>
         <li><a th:href="@{/trickCenter(name=${fox.getName()})}">Trick Center</a></li>
+        <li><a th:href="@{/actionHistory(name=${fox.getName()})}">Action History</a></li>
     </ul>
 
     <img src="greenfox.png">
@@ -26,6 +27,12 @@
             <li th:each="i : ${fox.getTricks()}" th:text="${i.getName()}"></li>
         </ul>
     </div>
+
+    <h2>Action History</h2>
+
+    <ul>
+        <li th:each="i : ${historyShort}" th:text="${i}"></li>
+    </ul>
 
 </body>
 </html>

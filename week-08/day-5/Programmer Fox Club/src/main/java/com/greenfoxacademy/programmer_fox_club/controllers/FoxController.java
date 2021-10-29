@@ -22,9 +22,10 @@ public class FoxController {
   @PostMapping(value = "/nutritionStore")
   public String changeNutrition(@RequestParam String name,
                                 @RequestParam String food,
-                                @RequestParam String drink, Model model) {
-    foxService.findActualFox(name).setDrink(Drink.valueOf(drink));
-    foxService.findActualFox(name).setFood(Food.valueOf(food));
+                                @RequestParam String drink,
+                                Model model) {
+    foxService.changeDrink(name, Drink.valueOf(drink));
+    foxService.changeFood(name, Food.valueOf(food));
     return String.format("redirect:/?name=%s", name);
   }
 

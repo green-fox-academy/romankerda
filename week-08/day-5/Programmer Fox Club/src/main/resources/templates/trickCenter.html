@@ -10,10 +10,10 @@
         <li><a th:href="@{/(name=${fox.getName()})}">Information</a></li>
         <li><a th:href="@{/nutritionStore(name=${fox.getName()})}">Nutrition Store</a></li>
         <li><a th:href="@{/trickCenter(name=${fox.getName()})}">Trick Center</a></li>
-        <li><a href="">Action History</a></li>
+        <li><a th:href="@{/actionHistory(name=${fox.getName()})}">Action History</a></li>
     </ul>
 
-    <p th:if="${trickList.isEmpty()}" th:text="'Nothing to learn. You have already learnt everything'"></p>
+<p th:if="${trickList.isEmpty()}" th:text="'Nothing to learn. You have already learnt everything'"></p>
 
     <form th:unless="${trickList.isEmpty()}" th:action="@{/trickCenter}" method="post">
         <label for="trick">Tricks</label>

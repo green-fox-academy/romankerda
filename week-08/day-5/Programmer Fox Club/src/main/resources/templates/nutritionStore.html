@@ -10,7 +10,7 @@
         <li><a th:href="@{/(name=${fox.getName()})}">Information</a></li>
         <li><a th:href="@{/nutritionStore(name=${fox.getName()})}">Nutrition Store</a></li>
         <li><a th:href="@{/trickCenter(name=${fox.getName()})}">Trick Center</a></li>
-        <li><a href="">Action History</a></li>
+        <li><a th:href="@{/actionHistory(name=${fox.getName()})}">Action History</a></li>
     </ul>
 
     <form th:action="@{/nutritionStore}" method="post">

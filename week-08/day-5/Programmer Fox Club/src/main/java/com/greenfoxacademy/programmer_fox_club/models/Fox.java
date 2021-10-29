@@ -14,6 +14,7 @@ public class Fox {
   private List<Trick> tricks;
   private Food food;
   private Drink drink;
+  private List<String> actionHistory;
 
 
 
@@ -22,6 +23,7 @@ public class Fox {
     tricks = new ArrayList<>();
     food = Food.POTATOS;
     drink = Drink.BEER;
+    actionHistory = new ArrayList<>();
   }
 
 }

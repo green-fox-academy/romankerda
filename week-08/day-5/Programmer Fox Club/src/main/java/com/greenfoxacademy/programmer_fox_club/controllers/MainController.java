@@ -25,6 +25,7 @@ public class MainController {
   public String start(@RequestParam (defaultValue = "empty") String name, Model model) {
     model.addAttribute("fox", foxService.findActualFox(name));
     model.addAttribute("name", "present");
+    model.addAttribute("historyShort", foxService.getShortHistory(name));
     if (name.equals("empty")) {
       model.addAttribute("name", "notPresent");
     }
@@ -55,5 +56,11 @@ public class MainController {
     model.addAttribute("trickList", foxService.getTricksToLearn(name));
     model.addAttribute("fox", foxService.findActualFox(name));
     return "trickCenter";
+  }
+
+  @GetMapping(value = "/actionHistory")
+  public String actionHistory(@RequestParam String name, Model model) {
+    model.addAttribute("fox", foxService.findActualFox(name));
+    return "actionHistory";
   }
 }
