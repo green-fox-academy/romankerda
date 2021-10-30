@@ -157,8 +157,7 @@ FROM rating AS l
          LEFT JOIN reviewer ON reviewer.rid = l.rid
 WHERE l.stars < r.stars
   AND l.ratingdate < r.ratingdate
-  AND l.mid = r.mid
-ORDER BY l.rid ASC, l.ratingdate ASC;
+  AND l.mid = r.mid;
 
 
 # For each movie that has at least one rating, find the highest number of stars that movie received.
@@ -180,4 +179,24 @@ FROM rating
          LEFT JOIN movie ON movie.mid = rating.mid
 GROUP BY title
 ORDER BY spread DESC, title ASC;
+
+# Find the difference between the average rating of movies released before 1980 and the average
+# rating of movies released after 1980. (Make sure to calculate the average rating for each movie,
+# then the average of those averages for movies before 1980 and movies after.
+# Don’t just calculate the overall average rating before and after 1980.)
+
+
+SELECT AVG(before1980) - AVG(after1980) as 'difference before/after 1980'
+FROM
+     (SELECT AVG(stars) AS before1980
+        FROM rating AS r
+            INNER JOIN movie AS m ON r.mid = m.mid
+        WHERE year < 1980
+        GROUP BY m.title) AS avg1,
+     (SELECT AVG(stars) AS after1980
+        FROM rating AS r
+            INNER JOIN movie AS m ON r.mid = m.mid
+        WHERE year > 1980
+        GROUP BY m.title) AS avg2
+;
 
