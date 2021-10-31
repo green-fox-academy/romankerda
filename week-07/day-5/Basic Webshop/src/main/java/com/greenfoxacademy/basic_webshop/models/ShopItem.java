@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Getter
 @Setter
-@NoArgsConstructor
 @AllArgsConstructor
 public class ShopItem {
 

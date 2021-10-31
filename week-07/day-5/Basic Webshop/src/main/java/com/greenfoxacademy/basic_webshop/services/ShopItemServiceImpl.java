@@ -48,9 +48,7 @@ public class ShopItemServiceImpl implements ShopItemService {
   }
 
   public List<ShopItem> getContainsNike() {
-    return list.stream()
-            .filter(i -> i.getName().toLowerCase().contains("nike") || i.getDescription().toLowerCase().contains("nike"))
-            .collect(Collectors.toList());
+    return getSearch("Nike");
   }
 
   public double getAverageStock() {
@@ -71,7 +69,8 @@ public class ShopItemServiceImpl implements ShopItemService {
 
   public List<ShopItem> getSearch(String text) {
     return list.stream()
-            .filter(i -> i.getName().toLowerCase().contains(text) || i.getDescription().toLowerCase().contains(text))
+            .filter(i -> i.getName().toLowerCase().contains(text.toLowerCase()) ||
+                    i.getDescription().toLowerCase().contains(text.toLowerCase()))
             .collect(Collectors.toList());
   }
 

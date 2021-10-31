@@ -12,7 +12,7 @@ public class ShopController {
   private ShopItemService shopItemService;
 
   @Autowired
-  public void ShopController(ShopItemService shopItemService) {
+  public ShopController(ShopItemService shopItemService) {
     this.shopItemService = shopItemService;
   }
 
