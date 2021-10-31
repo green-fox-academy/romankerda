@@ -10,7 +10,7 @@ class StudentServiceTest {
 
   @BeforeEach
   void setup() {
-    studentService = new StudentService();
+    studentService = new StudentServiceListImpl();
   }
 
 

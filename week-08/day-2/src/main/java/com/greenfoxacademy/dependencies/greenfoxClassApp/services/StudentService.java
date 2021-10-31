@@ -2,38 +2,16 @@ package com.greenfoxacademy.dependencies.greenfoxClassApp.services;
 
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Service
-public class StudentService {
-  private List<String> names;
+public interface StudentService {
 
-  public StudentService() {
-    names = new ArrayList<>();
-    names.add("Sanyi");
-    names.add("Lilla");
-    names.add("John");
-  }
+  List<String> getStudents();
 
+  void addStudent(String student);
 
-  public List<String> findAll() {
-    return names;
-  }
+  int getCount();
 
-  public void save(String student) {
-    names.add(student);
-  }
-
-  public int getCount() {
-    return names.size();
-  }
-
-  public boolean checkIsOnList(String name) {
-    if (names.contains(name)) {
-      return true;
-    } else return false;
-  }
+  boolean isOnList(String name);
 }

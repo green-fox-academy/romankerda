@@ -26,13 +26,13 @@ public class ClassController {
 
   @GetMapping(value = "/gfa/list")
   public String listAll(Model model) {
-    model.addAttribute("list", studentService.findAll());
+    model.addAttribute("list", studentService.getStudents());
     return "list";
   }
 
   @PostMapping(value = "/gfa/save")
   public String addStudent(Model model, @RequestParam("name") String name) {
-    studentService.save(name);
+    studentService.addStudent(name);
     return "redirect:/gfa";
   }
 
@@ -43,7 +43,7 @@ public class ClassController {
 
   @PostMapping(value = "/gfa/check")
   public String checkStudent(Model model, @RequestParam("name") String name) {
-    model.addAttribute("isOnList",studentService.checkIsOnList(name));
+    model.addAttribute("isOnList",studentService.isOnList(name));
     model.addAttribute("name", name);
     return "checkResult";
   }
