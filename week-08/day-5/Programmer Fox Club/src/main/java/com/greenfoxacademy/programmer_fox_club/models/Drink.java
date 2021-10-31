@@ -13,7 +13,7 @@ public enum Drink {
 
   private final String name;
 
-  private Drink (String name) {
+  Drink (String name) {
     this.name = name;
   }
 }

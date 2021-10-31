@@ -23,9 +23,9 @@ public class MainController {
 
   @GetMapping(value = "/")
   public String start(@RequestParam (defaultValue = "empty") String name, Model model) {
-    model.addAttribute("fox", foxService.findActualFox(name));
+    model.addAttribute("fox", foxService.getFox(name));
     model.addAttribute("name", "present");
-    model.addAttribute("historyShort", foxService.getShortHistory(name));
+    model.addAttribute("historyShort", foxService.getShortActionHistory(name));
     if (name.equals("empty")) {
       model.addAttribute("name", "notPresent");
     }
@@ -39,7 +39,7 @@ public class MainController {
 
   @PostMapping(value = "/login")
   public String loginName(@RequestParam String name) {
-    foxService.add(name);
+    foxService.addFox(name);
     return String.format("redirect:/?name=%s", name);
   }
 
@@ -47,20 +47,20 @@ public class MainController {
   public String nutritionStore(@RequestParam String name, Model model) {
     model.addAttribute("foodList", Food.values());
     model.addAttribute("drinkList", Drink.values());
-    model.addAttribute("fox", foxService.findActualFox(name));
+    model.addAttribute("fox", foxService.getFox(name));
     return "nutritionStore";
   }
 
   @GetMapping(value = "/trickCenter")
   public String trickCenter(@RequestParam String name, Model model) {
     model.addAttribute("trickList", foxService.getTricksToLearn(name));
-    model.addAttribute("fox", foxService.findActualFox(name));
+    model.addAttribute("fox", foxService.getFox(name));
     return "trickCenter";
   }
 
   @GetMapping(value = "/actionHistory")
   public String actionHistory(@RequestParam String name, Model model) {
-    model.addAttribute("fox", foxService.findActualFox(name));
+    model.addAttribute("fox", foxService.getFox(name));
     return "actionHistory";
   }
 }
