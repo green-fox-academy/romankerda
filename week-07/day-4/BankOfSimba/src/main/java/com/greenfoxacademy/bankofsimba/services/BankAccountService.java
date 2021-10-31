@@ -2,11 +2,13 @@ package com.greenfoxacademy.bankofsimba.services;
 
 import com.greenfoxacademy.bankofsimba.models.AnimalType;
 import com.greenfoxacademy.bankofsimba.models.BankAccount;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+@Service
 public class BankAccountService {
 
   private List<BankAccount> accountList;
@@ -22,18 +24,15 @@ public class BankAccountService {
             ));
   }
 
-  public List<BankAccount> getAll() {
+  public List<BankAccount> getAccounts() {
     return accountList;
   }
 
   public void raise(int idx) {
-    //if king's account then raise by 100, if not king's account raise by 10:
-    accountList.get(idx).setBalance(
-            accountList.get(idx).getIsKing() ? accountList.get(idx).getBalance()+100 : accountList.get(idx).getBalance()+10
-    );
+    accountList.get(idx).raiseBalance();
   }
 
-  public void addNew(BankAccount bankAccount) {
+  public void addAccount(BankAccount bankAccount) {
     accountList.add(bankAccount);
   }
 }

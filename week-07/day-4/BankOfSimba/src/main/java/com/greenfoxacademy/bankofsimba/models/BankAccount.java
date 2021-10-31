@@ -17,4 +17,9 @@ public class BankAccount {
   private AnimalType animalType;
   private Boolean isKing;
 
+
+  public void raiseBalance() {
+    //if king's account then raise by 100, if not king's account raise by 10:
+    balance = this.isKing ? balance + 100 : balance + 10;
+  }
 }
