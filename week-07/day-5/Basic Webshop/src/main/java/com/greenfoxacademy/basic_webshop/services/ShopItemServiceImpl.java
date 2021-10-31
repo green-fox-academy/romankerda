@@ -59,12 +59,10 @@ public class ShopItemServiceImpl implements ShopItemService {
   }
 
   public List<ShopItem> getMostExpensive() {
-    List<ShopItem> listSortedPrice = list.stream()
+    return list.stream()
             .sorted(Comparator.comparing(ShopItem::getPrice).reversed())
+            .limit(1)
             .collect(Collectors.toList());
-    List<ShopItem> onlyMax = new ArrayList<>();
-    onlyMax.add(listSortedPrice.get(0));
-    return onlyMax;
   }
 
   public List<ShopItem> getSearch(String text) {
