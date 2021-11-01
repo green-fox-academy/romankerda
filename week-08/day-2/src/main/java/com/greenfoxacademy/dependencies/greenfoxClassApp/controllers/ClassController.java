@@ -43,7 +43,7 @@ public class ClassController {
 
   @PostMapping(value = "/gfa/check")
   public String checkStudent(Model model, @RequestParam("name") String name) {
-    model.addAttribute("isOnList",studentService.isOnList(name));
+    model.addAttribute("isOnList", studentService.isOnList(name));
     model.addAttribute("name", name);
     return "checkResult";
   }
@@ -52,5 +52,4 @@ public class ClassController {
   public String toCheckForm() {
     return "checkForm";
   }
-
 }

@@ -11,7 +11,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class DependenciesApplication implements CommandLineRunner {
 
   private MyColor myColor;
-  private Printer printer;
 
   @Autowired
   public DependenciesApplication (MyColor myColor) {

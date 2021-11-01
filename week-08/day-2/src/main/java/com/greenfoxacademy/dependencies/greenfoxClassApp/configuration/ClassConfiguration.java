@@ -1,5 +1,6 @@
 package com.greenfoxacademy.dependencies.greenfoxClassApp.configuration;
 
+import com.greenfoxacademy.dependencies.greenfoxClassApp.controllers.ClassController;
 import com.greenfoxacademy.dependencies.greenfoxClassApp.services.StudentService;
 import com.greenfoxacademy.dependencies.greenfoxClassApp.services.StudentServiceFileImpl;
 import com.greenfoxacademy.dependencies.greenfoxClassApp.services.StudentServiceListImpl;
@@ -20,4 +21,5 @@ public class ClassConfiguration {
   public StudentService createFileImpl() {
     return new StudentServiceFileImpl();
   }
+
 }
