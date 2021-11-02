@@ -1,8 +1,6 @@
 package com.greenfoxacademy.connectionwithmysql;
 
-import com.greenfoxacademy.connectionwithmysql.models.Todo;
 import com.greenfoxacademy.connectionwithmysql.repositories.TodoRepository;
-import com.greenfoxacademy.connectionwithmysql.services.TodoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -14,11 +12,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class ConnectionWithMySqlApplication implements CommandLineRunner {
 
-	TodoService todoService;
+	TodoRepository todoRepository;
 
 	@Autowired
-	public ConnectionWithMySqlApplication(TodoService todoService) {
-		this.todoService = todoService;
+	public ConnectionWithMySqlApplication(TodoRepository todoRepository) {
+		this.todoRepository = todoRepository;
 	}
 	public static void main(String[] args) {
 		SpringApplication.run(ConnectionWithMySqlApplication.class, args);
@@ -27,17 +25,17 @@ public class ConnectionWithMySqlApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
-//		todoService.save(new Todo("Buy Milk", false, true));
-//		todoService.save(new Todo("Buy Bread", true, false));
-//		todoService.save(new Todo("Walk the dog"));
-//		todoService.save(new Todo("Study hard", false, true));
-//		todoService.save(new Todo("Read a book", true, true));
-//		todoService.save(new Todo("Clean bed"));
-//		todoService.save(new Todo("Watch TV"));
-//		todoService.save(new Todo("Listen to the radio"));
-//		todoService.save(new Todo("Go sleep"));
+//		todoRepository.save(new Todo("Buy Milk", false, true));
+//		todoRepository.save(new Todo("Buy Bread", true, false));
+//		todoRepository.save(new Todo("Walk the dog"));
+//		todoRepository.save(new Todo("Study hard", false, true));
+//		todoRepository.save(new Todo("Read a book", true, true));
+//		todoRepository.save(new Todo("Clean bed"));
+//		todoRepository.save(new Todo("Watch TV"));
+//		todoRepository.save(new Todo("Listen to the radio"));
+//		todoRepository.save(new Todo("Go sleep"));
 
-//		todoService.deleteTodo(4l);
+//
 
 
 

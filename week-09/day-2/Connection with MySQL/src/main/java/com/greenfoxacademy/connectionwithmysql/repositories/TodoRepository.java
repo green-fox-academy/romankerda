@@ -9,6 +9,6 @@ import java.util.List;
 
 public interface TodoRepository extends JpaRepository<Todo, Long> {
 
-  List<Todo> findAllByDone(boolean done);
+  List<Todo> findAllByDoneIsFalse();
 
 }
