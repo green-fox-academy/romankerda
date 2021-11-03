@@ -1,6 +1,8 @@
 package com.greenfoxacademy.connectionwithmysql.controllers;
 
+import com.greenfoxacademy.connectionwithmysql.models.Assignee;
 import com.greenfoxacademy.connectionwithmysql.models.Todo;
+import com.greenfoxacademy.connectionwithmysql.repositories.AssigneeRepository;
 import com.greenfoxacademy.connectionwithmysql.repositories.TodoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,11 +13,13 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("todo")
 public class TodoController {
 
-  TodoRepository todoRepository;
+  private TodoRepository todoRepository;
+  private AssigneeRepository assigneeRepository;
 
   @Autowired
-  public TodoController(TodoRepository todoRepository) {
+  public TodoController(TodoRepository todoRepository, AssigneeRepository assigneeRepository) {
     this.todoRepository = todoRepository;
+    this.assigneeRepository = assigneeRepository;
   }
 
   @GetMapping(value = {"/", "/list"})
@@ -40,26 +44,36 @@ public class TodoController {
     return "redirect:/todo/list";
   }
 
-  @GetMapping(value = "/{Id}/delete")
-  public String deleteTodo(@PathVariable (name = "Id") Long id) {
+  @GetMapping(value = "/{id}/delete")
+  public String deleteTodo(@PathVariable Long id) {
     todoRepository.delete(todoRepository.findById(id).get());
     return "redirect:/todo/list";
   }
 
-  @GetMapping(value = "/{Id}/edit")
-  public String editForm(@PathVariable (name = "Id") Long id, Model model) {
+  @GetMapping(value = "/{id}/edit")
+  public String editForm(@PathVariable Long id, Model model) {
     model.addAttribute("todo", todoRepository.findById(id).get());
+    model.addAttribute("assignees", assigneeRepository.findAll());
     return "editForm";
   }
 
-  @PostMapping(value = "/{Id}/edit")
-  public String editTodo(@PathVariable Long Id,
+  @PostMapping(value = "/{id}/edit")
+  public String editTodo(@PathVariable Long id,
                          @RequestParam (required = false) String title,
+                         @RequestParam (required = false) Long assigneeId,
                          @RequestParam (required = false) boolean urgent,
                          @RequestParam (required = false) boolean done) {
-    Todo todo = new Todo(Id, title, urgent, done);
+    Todo todo = new Todo(id, title, urgent, done, assigneeRepository.findById(assigneeId).get());
     todoRepository.save(todo);
+    assigneeRepository.findById(assigneeId).get().addTodo(todo);
     return "redirect:/todo/list";
+  }
+
+  @PostMapping(value = "/search")
+  public String search(@RequestParam String search, Model model) {
+      model.addAttribute("todos", todoRepository.findAllByTitleContaining(search));
+    return "todolist";
+
   }
 }
 

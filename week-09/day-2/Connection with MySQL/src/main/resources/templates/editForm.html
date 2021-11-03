@@ -9,9 +9,15 @@
 <body>
     <h1>Edit Todo</h1>
 
-    <form th:action="@{'/todo/{Id}/edit' (Id=*{Id})}" th:method="post" th:object="${todo}">
+    <form th:action="@{'/todo/{id}/edit' (id=*{id})}" th:method="post" th:object="${todo}">
         <label for="title">ToDo Description</label>
         <input type="text"  id="title"  name="title" th:value="*{title}" >
+        <br>
+        <label for="assignee">Assignee</label>
+        <select type="text"  id="assignee"  name="assigneeId">
+                <option th:each="assignee : ${assignees}" th:value="${assignee.id}" th:text="${assignee}"></option>
+            </select>
+        <br>
         <br>
         <label for="urgent">Urgent</label>
         <input type="checkbox" id="urgent" name="urgent" th:checked="*{urgent}">
