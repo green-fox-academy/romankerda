@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AddNewTodo</title>
+</head>
+<body>
+<h1>User Database</h1>
+<h2>Add a new User</h2>
+    <form th:action="@{/app}" th:method="post">
+        <label for="firstName">First Name</label>
+        <input type="text" id="firstName" name="firstName"><br>
+        <label for="lastName">Last Name</label>
+        <input type="text" id="lastName" name="lastName">
+        <button type="submit">Submit</button>
+    </form>
+<h2>Existing users</h2>
+<table>
+    <tr>
+        <th>First name</th>
+        <th>Last name</th>
+    </tr>
+    <tr th:each="user : ${users}" th:object="${user}">
+        <td th:text="*{firstName}"></td>
+        <td th:text="*{lastName}"></td>
+    </tr>
+</table>
+</body>
+
+</html>
