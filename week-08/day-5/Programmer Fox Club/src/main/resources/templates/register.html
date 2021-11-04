@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Programmer Fox Club Login</title>
+</head>
+<body>
+    <h1>Welcome to Programmer Fox Club!</h1>
+    <h3>Please register:</h3>
+    <h3 th:style="'color: red;'" th:if="${registrationFailed}" th:text="'Passwords do not match, try again'"></h3>
+    <form th:action="@{/registration}" th:method="post">
+        <p>
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required autofocus placeholder="..enter a name..">
+        </p>
+        <p>
+            <label for="password1">Password</label>
+            <input type="password" id="password1" name="password1" required placeholder="..enter a password..">
+        </p>
+        <p>
+            <label for="password2">Password</label>
+            <input type="password" id="password2" name="password2" required placeholder="..verify password..">
+        </p>
+        <p>
+            <button type="submit" >GO</button>
+        </p>
+    </form>
+
+</body>
+</html>
