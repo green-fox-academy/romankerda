@@ -9,7 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 
 @Controller
 @RequestMapping(value = "/assignee")
@@ -43,10 +42,8 @@ public class AssigneeController {
 
   @GetMapping(value = "/{id}/delete")
   public String deleteTodo(@PathVariable(name = "id") Long id) {
-    List<Todo> todos = todoRepository.findAllByAssigneeId(id);
-    todos.forEach(todo -> todo.setAssignee(new Assignee()));
-    todos.forEach(todo -> todoRepository.save(todo));
-    assigneeRepository.delete(assigneeRepository.findById(id).get());
+    Assignee assignee = assigneeRepository.findById(id).get();
+    assigneeRepository.delete(assignee);
     return "redirect:/assignee";
   }
 
@@ -65,5 +62,20 @@ public class AssigneeController {
     assignee.setEmail(email);
     assigneeRepository.save(assignee);
     return "redirect:/assignee";
+  }
+
+  @GetMapping(value = "/{id}/todos")
+  public String todosByAssignee(@PathVariable Long id, Model model) {
+    model.addAttribute("todos", assigneeRepository.findById(id).get().getTodos());
+    return "todolist";
+  }
+
+  @GetMapping(value = "/{id}/todos2")     //id = todo.id
+  public String todosByAssignee2(@PathVariable Long id, Model model) {
+    //find assignee.id by todo.id
+    Long assigneeId = todoRepository.getById(id).getAssignee().getId();
+    //get todos by assignee.id
+    model.addAttribute("todos", assigneeRepository.findById(assigneeId).get().getTodos());
+    return "todolist";
   }
 }

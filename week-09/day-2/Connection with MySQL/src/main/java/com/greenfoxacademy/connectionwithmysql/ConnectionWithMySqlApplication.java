@@ -9,7 +9,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-
+import java.util.Arrays;
 
 
 @SpringBootApplication
@@ -34,33 +34,19 @@ public class ConnectionWithMySqlApplication implements CommandLineRunner {
 		Todo todo1 = new Todo("Buy Milk", false, true);
 		Todo todo2 = new Todo("Buy Bread", true, false);
 		Todo todo3 = new Todo("Walk the dog");
-		Todo todo4 = new Todo("Study hard", false, true);
-		Todo todo5 = new Todo("Read a book", true, true);
-		Todo todo6 = new Todo("Clean bed");
-		Todo todo7 = new Todo("Watch TV");
-		Todo todo8 = new Todo("Listen to the radio");
-		Todo todo9 = new Todo("Go sleep");
-
-		todoRepository.save(todo1);
-		todoRepository.save(todo2);
-		todoRepository.save(todo3);
-		todoRepository.save(todo4);
-		todoRepository.save(todo5);
-		todoRepository.save(todo6);
-		todoRepository.save(todo7);
-		todoRepository.save(todo8);
-		todoRepository.save(todo9);
-
 
 		Assignee assignee1 = new Assignee("Roman", "roman@cz");
-		Assignee assignee2 = new Assignee("Joe", "joe@com");
-		Assignee assignee3 = new Assignee("Olivier", "olivier@fr");
+		Assignee assignee2 = new Assignee("Pepa", "pepa@cz");
 
-
+		todo1.setAssignee(assignee1);
+		todo2.setAssignee(assignee1);
+		todo3.setAssignee(assignee2);
+		assignee1.setTodos(Arrays.asList(todo1, todo2));
+		assignee2.setTodos(Arrays.asList(todo3));
 
 		assigneeRepository.save(assignee1);
 		assigneeRepository.save(assignee2);
-		assigneeRepository.save(assignee3);
+
 
 	}
 }

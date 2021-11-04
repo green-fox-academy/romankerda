@@ -33,6 +33,7 @@
                 <td th:text="*{email}"></td>
                 <td><a th:href="@{'/assignee/{id}/delete' (id=*{id})}">delete</a></td>
                 <td><a th:href="@{'/assignee/{id}/edit' (id=*{id})}">edit</a></td>
+                <td><a th:href="@{'/assignee/{id}/todos' (id=*{id})}">todos</a></td>
             </tr>
 
         </tbody>

@@ -10,12 +10,18 @@
     <h1>Edit Assignee</h1>
 
     <form th:action="@{'/assignee/{id}/edit' (id=*{id})}" th:method="post" th:object="${assignee}">
-        <label for="name">Assignee Name</label>
-        <input type="text"  id="name"  name="name" th:value="*{name}" ><br>
-        <label for="email">Assignee Email</label>
-        <input type="email"  id="email"  name="email" th:value="*{email}" ><br>
+        <p>
+            <label for="name">Assignee Name</label>
+            <input type="text"  id="name"  name="name" th:value="*{name}" >
+        </p>
+        <p>
+            <label for="email">Assignee Email</label>
+            <input type="email"  id="email"  name="email" th:value="*{email}" ><br>
+        </p>
+        <p>
+            <button type="submit">Submit</button>
+        </p>
 
-        <button type="submit">Submit</button>
         <a th:href="@{/assignee/list}">Cancel</a>
     </form>
 
