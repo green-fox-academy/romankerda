@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Programmer Fox Club Login</title>
+</head>
+<body>
+    <h1>Welcome to Programmer Fox Club!</h1>
+    <p>Please Sign in or <span><a th:href="@{/registration}" th:text="'Sing up.'"></a></span></p>
+    <h4 th:if="${incorrectLogin}"  th:style="'color: red;'" th:text="'Incorect data, try again'"></h4>
+
+
+    <form th:action="@{/login}" th:method="post">
+        <p>
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required autofocus placeholder="..enter a name..">
+        </p>
+        <p>
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required placeholder="..enter a password..">
+        </p>
+        <p>
+            <button type="submit" >GO</button>
+        </p>
+    </form>
+
+</body>
+</html>

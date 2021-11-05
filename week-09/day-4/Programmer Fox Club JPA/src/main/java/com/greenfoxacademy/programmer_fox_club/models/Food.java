@@ -2,7 +2,9 @@ package com.greenfoxacademy.programmer_fox_club.models;
 
 import lombok.Getter;
 
-@Getter
+import javax.persistence.Entity;
+
+
 public enum Food {
   PIZZA ("pizza"),
   BREAD ("bread"),

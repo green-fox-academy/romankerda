@@ -1,16 +1,19 @@
 package com.greenfoxacademy.programmer_fox_club.models;
 
-import javax.annotation.Generated;
-import javax.persistence.*;
+import lombok.Getter;
 
-@Entity
-public class Trick {
+@Getter
+public enum Trick {
+  HTML ("write HTML"),
+  JAVA ("Java"),
+  PYTHON ("Python"),
+  CSS ("style CSS"),
+  JS ("Java Stript"),
+  CSharp ("C-sharp");
 
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long id;
-  @Enumerated(EnumType.STRING)
-  private TrickEnum trickEnum;
-  @ManyToOne(fetch = FetchType.LAZY)
-  private Fox fox;
+  private String name;
+
+  private Trick(String name) {
+    this.name = name;
+  }
 }

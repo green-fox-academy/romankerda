@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div th:fragment="header">
+        <ul>
+            <li><a th:href="@{'/{userName}' (userName = ${user.getName()})}">Information</a></li>
+            <li><a th:href="@{'/nutritionStore/{userName}' (userName = ${user.getName()})}">Nutrition Store</a></li>
+            <li><a th:href="@{'/trickCenter/{userName}' (userName = ${user.getName()})}">Trick Center</a></li>
+            <li><a th:href="@{'/actionHitory/{userName}' (userName = ${user.getName()})}">Action History</a></li>
+        </ul>
+    </div>
+</body>
+</html>

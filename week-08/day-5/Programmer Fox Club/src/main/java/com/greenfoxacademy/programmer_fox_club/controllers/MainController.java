@@ -1,123 +1,66 @@
 package com.greenfoxacademy.programmer_fox_club.controllers;
 
-import com.greenfoxacademy.programmer_fox_club.models.Fox;
-import com.greenfoxacademy.programmer_fox_club.models.User;
-import com.greenfoxacademy.programmer_fox_club.repositories.FoxRepository;
-import com.greenfoxacademy.programmer_fox_club.repositories.UserRepository;
+import com.greenfoxacademy.programmer_fox_club.models.Drink;
+import com.greenfoxacademy.programmer_fox_club.models.Food;
+import com.greenfoxacademy.programmer_fox_club.services.FoxService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
-
-import java.util.Optional;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 
 @Controller
 public class MainController {
 
-  UserRepository userRepository;
-  FoxRepository foxRepository;
+  FoxService foxService;
 
   @Autowired
-  public MainController(UserRepository userRepository, FoxRepository foxRepository) {
-    this.userRepository = userRepository;
-    this.foxRepository = foxRepository;
+  public MainController(FoxService foxService) {
+    this.foxService = foxService;
   }
 
-
-
-//  @GetMapping(value = "")
-
-  @GetMapping(value = "/registration")
-  public String registerForm() {
-    return "register";
+  @GetMapping(value = "/")
+  public String start(@RequestParam (defaultValue = "empty") String name, Model model) {
+    model.addAttribute("fox", foxService.getFox(name));
+    model.addAttribute("name", "present");
+    model.addAttribute("historyShort", foxService.getShortActionHistory(name));
+    if (name.equals("empty")) {
+      model.addAttribute("name", "notPresent");
+    }
+    return "index";
   }
 
   @GetMapping(value = "/login")
-  public String loginMain(@RequestParam (required = false) boolean incorrectLogin) {
+  public String login() {
     return "login";
   }
 
   @PostMapping(value = "/login")
-  public String loginMain(@RequestParam String name, @RequestParam String password, Model model) {
-    User user = userRepository.findByName(name);
-    if (user != null && user.getPassword().equals(password)) {
-      return String.format("redirect:/%s", user.getName());
-    } else {
-      model.addAttribute("incorrectLogin", true);
-      return "/login";
-    }
+  public String loginName(@RequestParam String name) {
+    foxService.addFox(name);
+    return String.format("redirect:/?name=%s", name);
   }
 
-  @PostMapping(value = "/registration")
-  public String register(@RequestParam String name,
-                         @RequestParam String password1,
-                         @RequestParam String password2,
-                         Model model) {
-    if (password1.equals(password2)) {
-      User user = new User();
-      user.setName(name);
-      user.setPassword(password1);
-      Fox fox = new Fox();
-      user.setFox(fox);
-      fox.setUser(user);
-      userRepository.save(user);
-//      foxRepository.save(fox);
-      return String.format("redirect:/login/%s", user.getName());
-    } else {
-      boolean failed = true;
-      model.addAttribute("registrationFailed", failed);
-      return "register";
-    }
+  @GetMapping(value = "/nutritionStore")
+  public String nutritionStore(@RequestParam String name, Model model) {
+    model.addAttribute("foodList", Food.values());
+    model.addAttribute("drinkList", Drink.values());
+    model.addAttribute("fox", foxService.getFox(name));
+    return "nutritionStore";
   }
 
-  @GetMapping(value = "/login/{userName}")
-  public String loginForm(@PathVariable String userName, Model model) {
-    model.addAttribute("userName", userName);
-    return "loginFox";
+  @GetMapping(value = "/trickCenter")
+  public String trickCenter(@RequestParam String name, Model model) {
+    model.addAttribute("trickList", foxService.getTricksToLearn(name));
+    model.addAttribute("fox", foxService.getFox(name));
+    return "trickCenter";
   }
 
-  @PostMapping(value = "/login/{userName}")
-  public String login(@PathVariable String userName, @RequestParam String name, Model model) {
-    User user = userRepository.findByName(userName);
-    user.getFox().setName(name);
-    userRepository.save(user);
-    return String.format("redirect:/%s", userName);
+  @GetMapping(value = "/actionHistory")
+  public String actionHistory(@RequestParam String name, Model model) {
+    model.addAttribute("fox", foxService.getFox(name));
+    return "actionHistory";
   }
-
-
-  @GetMapping(value = "/{userName}")
-  public String startPage(@PathVariable String userName, Model model) {
-    model.addAttribute("fox", userRepository.findByName(userName).getFox());
-    model.addAttribute("user", userRepository.findByName(userName));
-    return "index";
-  }
-
-//
-//  @PostMapping(value = "/login")
-//  public String loginName(@RequestParam String name) {
-//    foxService.addFox(name);
-//    return String.format("redirect:/?name=%s", name);
-//  }
-//
-//  @GetMapping(value = "/nutritionStore")
-//  public String nutritionStore(@RequestParam String name, Model model) {
-//    model.addAttribute("foodList", Food.values());
-//    model.addAttribute("drinkList", Drink.values());
-//    model.addAttribute("fox", foxService.getFox(name));
-//    return "nutritionStore";
-//  }
-//
-//  @GetMapping(value = "/trickCenter")
-//  public String trickCenter(@RequestParam String name, Model model) {
-//    model.addAttribute("trickList", foxService.getTricksToLearn(name));
-//    model.addAttribute("fox", foxService.getFox(name));
-//    return "trickCenter";
-//  }
-//
-//  @GetMapping(value = "/actionHistory")
-//  public String actionHistory(@RequestParam String name, Model model) {
-//    model.addAttribute("fox", foxService.getFox(name));
-//    return "actionHistory";
-//  }
 }

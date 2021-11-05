@@ -7,10 +7,10 @@
 <body>
     <div th:fragment="header">
         <ul>
-            <li><a th:href="@{'/{userName}' (userName = ${user.getName()})}">Information</a></li>
-            <li><a th:href="@{'/nutritionStore/{userName}' (userName = ${user.getName()})}">Nutrition Store</a></li>
-            <li><a th:href="@{'/trickCenter/{userName}' (userName = ${user.getName()})}">Trick Center</a></li>
-            <li><a th:href="@{'/actionHitory/{userName}' (userName = ${user.getName()})}">Action History</a></li>
+            <li><a th:href="@{/(name=${fox.getName()})}">Information</a></li>
+            <li><a th:href="@{/nutritionStore(name=${fox.getName()})}">Nutrition Store</a></li>
+            <li><a th:href="@{/trickCenter(name=${fox.getName()})}">Trick Center</a></li>
+            <li><a th:href="@{/actionHistory(name=${fox.getName()})}">Action History</a></li>
         </ul>
     </div>
 </body>

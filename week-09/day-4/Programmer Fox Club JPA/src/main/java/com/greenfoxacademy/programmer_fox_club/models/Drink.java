@@ -1,8 +1,13 @@
 package com.greenfoxacademy.programmer_fox_club.models;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
-@Getter
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+
+
 public enum Drink {
   WATER ("water"),
   BEER ("beer"),

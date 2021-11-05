@@ -18,23 +18,23 @@ public class FoxController {
   public FoxController(FoxService foxService) {
     this.foxService = foxService;
   }
-//
-//  @PostMapping(value = "/nutritionStore")
-//  public String changeNutrition(@RequestParam String name,
-//                                @RequestParam String food,
-//                                @RequestParam String drink,
-//                                Model model) {
-//    foxService.changeDrink(name, Drink.valueOf(drink));
-//    foxService.changeFood(name, Food.valueOf(food));
-//    return String.format("redirect:/?name=%s", name);
-//  }
-//
-//  @PostMapping(value = "/trickCenter")
-//  public String addTrick(@RequestParam String name,
-//                         @RequestParam String trick,
-//                         Model model) {
-//    foxService.addTrick(name, trick);
-//    return String.format("redirect:/?name=%s", name);
-//  }
+
+  @PostMapping(value = "/nutritionStore")
+  public String changeNutrition(@RequestParam String name,
+                                @RequestParam String food,
+                                @RequestParam String drink,
+                                Model model) {
+    foxService.changeDrink(name, Drink.valueOf(drink));
+    foxService.changeFood(name, Food.valueOf(food));
+    return String.format("redirect:/?name=%s", name);
+  }
+
+  @PostMapping(value = "/trickCenter")
+  public String addTrick(@RequestParam String name,
+                         @RequestParam String trick,
+                         Model model) {
+    foxService.addTrick(name, trick);
+    return String.format("redirect:/?name=%s", name);
+  }
 
 }
