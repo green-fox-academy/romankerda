@@ -47,6 +47,5 @@ public class ConnectionWithMySqlApplication implements CommandLineRunner {
 		assigneeRepository.save(assignee1);
 		assigneeRepository.save(assignee2);
 
-
 	}
 }

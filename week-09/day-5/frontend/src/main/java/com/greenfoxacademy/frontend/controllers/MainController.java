@@ -5,15 +5,29 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.greenfoxacademy.frontend.models.*;
 import com.greenfoxacademy.frontend.models.DTO.*;
 import com.greenfoxacademy.frontend.models.Number;
+import com.greenfoxacademy.frontend.repositories.LogRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+
+import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 import java.util.Optional;
 
 @Controller
 public class MainController {
+
+  LogRepository logRepository;
+
+  @Autowired
+  public MainController(LogRepository logRepository) {
+    this.logRepository = logRepository;
+  }
 
   @GetMapping(value = "/")
   public String start() {
@@ -21,9 +35,19 @@ public class MainController {
   }
 
 
+  public void saveLog(HttpServletRequest request) {
+    Log log = new Log();
+    log.setEndpoint(request.getServletPath());
+    log.setData(request.getQueryString());
+    log.setDate(new Date());
+    logRepository.save(log);
+  }
+
   @GetMapping(value = "/doubling")
   @ResponseBody
-  public ResponseEntity doubling(@RequestParam(required = false) Optional<Integer> input) {
+  public ResponseEntity doubling(@RequestParam(required = false) Optional<Integer> input,
+                                 HttpServletRequest request) {
+    saveLog(request);
     if (input.isPresent()) {
       Doubling doubling = new Doubling();
       doubling.setReceived(input.get());
@@ -38,7 +62,9 @@ public class MainController {
   @GetMapping(value = "/greeter")
   @ResponseBody
   public ResponseEntity greet(@RequestParam(required = false) Optional<String> name,
-                              @RequestParam(required = false) Optional<String> title) {
+                              @RequestParam(required = false) Optional<String> title,
+                              HttpServletRequest request) {
+    saveLog(request);
     if (name.isPresent() && title.isPresent()) {
       Greeter greeter = new Greeter(name.get(), title.get());
       GreeterDTO greeterDTO = new GreeterDTO();
@@ -64,14 +90,24 @@ public class MainController {
 
   @GetMapping(value = "/appenda/{appendable}")
   @ResponseBody
-  public ResponseEntity appenda(@PathVariable String appendable) {
+  public ResponseEntity appenda(@PathVariable String appendable, HttpServletRequest request) {
+    saveLog(request);
     Appenda text = new Appenda(appendable);
     return ResponseEntity.status(HttpStatus.OK).body(text);
   }
 
   @PostMapping(value = "/dountil/{operation}")
   @ResponseBody
-  public ResponseEntity dountil(@PathVariable String operation, @RequestBody (required = false) String until) {
+  public ResponseEntity doUntil(@PathVariable String operation,
+                                @RequestBody (required = false) String until,
+                                HttpServletRequest request) {
+
+    Log log = new Log();
+    log.setEndpoint(request.getServletPath());
+    log.setData(until);
+    log.setDate(new Date());
+    logRepository.save(log);
+
     ObjectMapper mapper = new ObjectMapper();
     try {
       Number number = mapper.readValue(until, Number.class);
@@ -86,7 +122,14 @@ public class MainController {
 
   @PostMapping(value = "/arrays")
   @ResponseBody
-  public ResponseEntity arrays(@RequestBody (required = false) String input) {
+  public ResponseEntity arrays(@RequestBody (required = false) String input,
+                               HttpServletRequest request) {
+    Log log = new Log();
+    log.setEndpoint(request.getServletPath());
+    log.setData(input);
+    log.setDate(new Date());
+    logRepository.save(log);
+
     ObjectMapper mapper = new ObjectMapper();
     try {
       ArrayHandler arrayHandler = mapper.readValue(input, ArrayHandler.class);
@@ -104,6 +147,28 @@ public class MainController {
       ArrayHandlerErrorDTO error = new ArrayHandlerErrorDTO();
       return ResponseEntity.status(HttpStatus.OK).body(error);
     }
+  }
+
+
+  @GetMapping(value = "/log")
+  @ResponseBody
+  public ResponseEntity logInfo() {
+    LogsDTO logsDTO = new LogsDTO();
+    logsDTO.setEntry_count(logRepository.countLogs());
+
+    List<Log> logs = logRepository.listLogs();
+    List<LogDTO> logDTOList = new ArrayList<>();
+    for (Log log : logs) {
+      LogDTO logDTO = new LogDTO();
+      logDTO.setId(log.getId());
+      logDTO.setEndpoint(log.getEndpoint());
+      logDTO.setData(log.getData());
+      logDTOList.add(logDTO);
+    }
+
+    logsDTO.setEntries(logDTOList);
+
+    return ResponseEntity.status(HttpStatus.OK).body(logsDTO);
   }
 }
 
