@@ -15,7 +15,6 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-@NoArgsConstructor
 @AllArgsConstructor
 public class Fox {
 
@@ -31,16 +30,30 @@ public class Fox {
   private Drink drink;
   @OneToMany(mappedBy = "fox", cascade = CascadeType.ALL)
   private List<Action> actions;
-  @OneToOne(fetch = FetchType.LAZY)
+  @OneToOne(mappedBy = "fox", fetch = FetchType.LAZY)
   private User user;
 
 
+  public Fox() {
+    food = Food.POTATOS;
+    drink = Drink.BEER;
+  }
 
   public Fox(String name) {
     this.name = name;
     food = Food.POTATOS;
     drink = Drink.BEER;
   }
+
+  public void addTrick(Trick trick) {
+    tricks.add(trick);
+  }
+
+  public void addAction(Action action) {
+    actions.add(action);
+  }
+
+
 
 
 //

@@ -11,7 +11,7 @@
     <br>
 
 
-    <form th:action="@{/nutritionStore}" method="post">
+    <form th:action="@{'/nutritionStore/' + ${userName}}" method="post">
         <label for="food">Food</label>
         <select type="text" id="food" name="food">
             <option th:each="i : ${foodList}" th:value="${i}" th:text="${i.getName()}" th:selected="${i==fox.getFood()}"></option>
@@ -20,9 +20,11 @@
         <select type="text" id="drink" name="drink">
             <option th:each="i : ${drinkList}" th:value="${i}" th:text="${i.getName()}" th:selected="${i==fox.getDrink()}"></option>
         </select>
-        <input type="hidden" th:name="name" th:value="${fox.getName()}"/>
+<!--        <input type="hidden" th:name="name" th:value="${fox.getName()}"/>-->
         <button type="submit">Change</button>
     </form>
 
 </body>
 </html>
+
+<!--<option th:each="i : ${drinkList}" th:value="${i}" th:text="${i.getName()}" th:selected="${i==fox.getDrink()}"></option>-->

@@ -1,9 +1,12 @@
 package com.greenfoxacademy.programmer_fox_club.models;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
 
+@Getter
+@NoArgsConstructor
 public enum TrickEnum {
   HTML ("write HTML"),
   JAVA ("Java"),

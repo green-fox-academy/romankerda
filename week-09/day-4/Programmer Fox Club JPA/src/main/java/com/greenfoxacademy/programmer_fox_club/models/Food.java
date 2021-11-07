@@ -4,7 +4,7 @@ import lombok.Getter;
 
 import javax.persistence.Entity;
 
-
+@Getter
 public enum Food {
   PIZZA ("pizza"),
   BREAD ("bread"),

@@ -12,7 +12,7 @@
 
 
     <ul th:object="${fox}">
-        <li th:each="i : ${fox.getActionHistory()}" th:text="${i}"></li>
+        <li th:each="action : ${fox.getActions()}" th:text="${action.getDate()} + ' - ' +${action.getDescription()}"></li>
     </ul>
 
 

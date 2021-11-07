@@ -1,9 +1,16 @@
 package com.greenfoxacademy.programmer_fox_club.models;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.annotation.Generated;
 import javax.persistence.*;
 
 @Entity
+@Getter
+@Setter
+@NoArgsConstructor
 public class Trick {
 
   @Id

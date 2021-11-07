@@ -8,6 +8,7 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 
 
+@Getter
 public enum Drink {
   WATER ("water"),
   BEER ("beer"),

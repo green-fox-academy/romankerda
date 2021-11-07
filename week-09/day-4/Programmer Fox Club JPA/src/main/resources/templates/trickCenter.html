@@ -12,12 +12,12 @@
 
     <p th:if="${trickList.isEmpty()}" th:text="'Nothing to learn. You have already learnt everything'"></p>
 
-    <form th:unless="${trickList.isEmpty()}" th:action="@{/trickCenter}" method="post">
+<!--    <form th:unless="${trickList.isEmpty()}" th:action="@{/trickCenter}" method="post">-->
+    <form th:unless="${trickList.isEmpty()}" th:action="@{'/trickCenter/' + ${userName}}" method="post">
         <label for="trick">Tricks</label>
         <select type="text" id="trick" name="trick">
-            <option th:each="i : ${trickList}" th:value="${i}" th:text="${i.getName()}"></option>
+            <option th:each="trick : ${trickList}" th:value="${trick}" th:text="${trick.getName()}"></option>
         </select>
-        <input type="hidden" th:name="name" th:value="${fox.getName()}"/>
         <button type="submit">Learn</button>
     </form>
 

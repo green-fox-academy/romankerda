@@ -1,13 +1,17 @@
 package com.greenfoxacademy.programmer_fox_club.controllers;
 
-import com.greenfoxacademy.programmer_fox_club.models.Fox;
-import com.greenfoxacademy.programmer_fox_club.models.User;
+import com.greenfoxacademy.programmer_fox_club.models.*;
 import com.greenfoxacademy.programmer_fox_club.repositories.FoxRepository;
 import com.greenfoxacademy.programmer_fox_club.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import sun.swing.SwingUtilities2;
+
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
 
 
 @Controller
@@ -28,7 +32,7 @@ public class MainController {
   }
 
   @GetMapping(value = "/login")
-  public String loginMain(@RequestParam (required = false) boolean incorrectLogin) {
+  public String loginMain(@RequestParam(required = false) boolean incorrectLogin) {
     return "login";
   }
 
@@ -73,22 +77,22 @@ public class MainController {
   @PostMapping(value = "/login/{userName}")
   public String login(@PathVariable String userName, @RequestParam String name, Model model) {
     User user = userRepository.findByName(userName);
-    user.getFox().setName(name);
+    foxRepository.findFoxByUserName(userName).setName(name);
     userRepository.save(user);
     return String.format("redirect:/%s", userName);
   }
 
-
   @GetMapping(value = "/{userName}")
   public String startPage(@PathVariable String userName, Model model) {
+
+    Fox fox = userRepository.findByName(userName).getFox();
+    List<Action> full = fox.getActions();
+    List<Action> historyShort = full.subList(full.size()-5, full.size());
+
     model.addAttribute("fox", userRepository.findByName(userName).getFox());
     model.addAttribute("user", userRepository.findByName(userName));
+    model.addAttribute("historyShort", historyShort);
+
     return "index";
   }
-
-//  @GetMapping(value = "/actionHistory")
-//  public String actionHistory(@RequestParam String name, Model model) {
-//    model.addAttribute("fox", foxService.getFox(name));
-//    return "actionHistory";
-//  }
 }
