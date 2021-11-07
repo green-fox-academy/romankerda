@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import sun.swing.SwingUtilities2;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
@@ -87,7 +88,12 @@ public class MainController {
 
     Fox fox = userRepository.findByName(userName).getFox();
     List<Action> full = fox.getActions();
-    List<Action> historyShort = full.subList(full.size()-5, full.size());
+    List<Action> historyShort = new ArrayList<>();
+    if (full.size() > 5) {
+      historyShort = full.subList(full.size() - 5, full.size());
+    } else {
+      historyShort.addAll(full);
+    }
 
     model.addAttribute("fox", userRepository.findByName(userName).getFox());
     model.addAttribute("user", userRepository.findByName(userName));

@@ -81,7 +81,7 @@ public class FoxController {
     model.addAttribute("userName", userName);
     User user = userRepository.findByName(userName);
     Fox fox = foxRepository.findFoxByUserName(userName);
-    fox.addAction(new Action(fox, String.format("Learnt to: %s", trick.toLowerCase())));
+    fox.addAction(new Action(fox, String.format("Learnt to: %s", TrickEnum.valueOf(trick).getName())));
     Trick trickNew = new Trick();
     trickNew.setTrickEnum(TrickEnum.valueOf(trick));
     trickNew.setFox(fox);

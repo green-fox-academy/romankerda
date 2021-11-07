@@ -7,6 +7,7 @@ import lombok.Setter;
 import org.apache.tomcat.jni.Time;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
 import java.util.Date;
 
 @Entity
@@ -28,7 +29,7 @@ public class Action {
   public Action (Fox fox, String description) {
     this.description = description;
     this.fox = fox;
-//    date = new Date();
+    date = new Timestamp(System.currentTimeMillis());
   }
 
   // TODO: 07.11.2021 change Date() to timestamp, currently not showing time, 
