@@ -99,7 +99,7 @@ public class MainController {
   @PostMapping(value = "/dountil/{operation}")
   @ResponseBody
   public ResponseEntity doUntil(@PathVariable String operation,
-                                @RequestBody (required = false) String until,
+                                @RequestBody(required = false) String until,
                                 HttpServletRequest request) {
 
     Log log = new Log();
@@ -119,10 +119,9 @@ public class MainController {
     }
   }
 
-
   @PostMapping(value = "/arrays")
   @ResponseBody
-  public ResponseEntity arrays(@RequestBody (required = false) String input,
+  public ResponseEntity arrays(@RequestBody(required = false) String input,
                                HttpServletRequest request) {
     Log log = new Log();
     log.setEndpoint(request.getServletPath());
@@ -165,10 +164,31 @@ public class MainController {
       logDTO.setData(log.getData());
       logDTOList.add(logDTO);
     }
-
     logsDTO.setEntries(logDTOList);
-
     return ResponseEntity.status(HttpStatus.OK).body(logsDTO);
+  }
+
+  @PostMapping("/sith")
+  @ResponseBody
+  public ResponseEntity reverse(@RequestBody(required = false) Optional<String> input) {
+    if (input.isPresent() || !input.get().isEmpty()) {
+      ObjectMapper mapper = new ObjectMapper();
+      try {
+        Reverser reverser = mapper.readValue(input.get(), Reverser.class);
+        if (reverser.getText() == null) {
+          ErrorMessageDTO errorMessageDTO = new ErrorMessageDTO("Feed me some text you have to, padawan young you are. Hmmm.");
+          return ResponseEntity.status(HttpStatus.OK).body(errorMessageDTO);
+        }
+        reverser.reverse();
+        return ResponseEntity.status(HttpStatus.OK).body(reverser);
+      } catch (JsonProcessingException e) {
+        ErrorMessageDTO errorMessageDTO = new ErrorMessageDTO("Feed me some text you have to, padawan young you are. Hmmm.");
+        return ResponseEntity.status(HttpStatus.OK).body(errorMessageDTO);
+      }
+    } else {
+        ErrorMessageDTO errorMessageDTO = new ErrorMessageDTO("Feed me some text you have to, padawan young you are. Hmmm.");
+      return ResponseEntity.status(HttpStatus.OK).body(errorMessageDTO);
+    }
   }
 }
 
