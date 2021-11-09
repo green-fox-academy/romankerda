@@ -5,8 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.apache.juli.logging.LogFactory;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -17,5 +17,8 @@ public class LogsDTO {
 
   private List<LogDTO> entries;
   private int entry_count;
+
+
+
 
 }

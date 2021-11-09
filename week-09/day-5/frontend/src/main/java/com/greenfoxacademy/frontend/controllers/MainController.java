@@ -5,7 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.greenfoxacademy.frontend.models.*;
 import com.greenfoxacademy.frontend.models.DTO.*;
 import com.greenfoxacademy.frontend.models.Number;
-import com.greenfoxacademy.frontend.repositories.LogRepository;
+import com.greenfoxacademy.frontend.services.LogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,19 +14,16 @@ import org.springframework.web.bind.annotation.*;
 
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 import java.util.Optional;
 
 @Controller
 public class MainController {
 
-  LogRepository logRepository;
+  LogService logService;
 
   @Autowired
-  public MainController(LogRepository logRepository) {
-    this.logRepository = logRepository;
+  public MainController(LogService logService) {
+    this.logService = logService;
   }
 
   @GetMapping(value = "/")
@@ -35,27 +32,14 @@ public class MainController {
   }
 
 
-  public void saveLog(HttpServletRequest request) {
-    Log log = new Log();
-    log.setEndpoint(request.getServletPath());
-    log.setData(request.getQueryString());
-    log.setDate(new Date());
-    logRepository.save(log);
-  }
-
   @GetMapping(value = "/doubling")
   @ResponseBody
-  public ResponseEntity doubling(@RequestParam(required = false) Optional<Integer> input,
-                                 HttpServletRequest request) {
-    saveLog(request);
+  public ResponseEntity doubling(@RequestParam(required = false) Optional<Integer> input, HttpServletRequest request) {
+    logService.saveLog(request);
     if (input.isPresent()) {
-      Doubling doubling = new Doubling();
-      doubling.setReceived(input.get());
-      doubling.setResult(input.get() * 2);
-      return ResponseEntity.status(HttpStatus.OK).body(doubling);
+      return ResponseEntity.status(HttpStatus.OK).body(new Doubling(input.get(), input.get() * 2));
     } else {
-      DoublingErrorDTO error = new DoublingErrorDTO();
-      return ResponseEntity.status(HttpStatus.OK).body(error);
+      return ResponseEntity.status(HttpStatus.OK).body(new DoublingErrorDTO());
     }
   }
 
@@ -64,70 +48,33 @@ public class MainController {
   public ResponseEntity greet(@RequestParam(required = false) Optional<String> name,
                               @RequestParam(required = false) Optional<String> title,
                               HttpServletRequest request) {
-    saveLog(request);
+    logService.saveLog(request);
     if (name.isPresent() && title.isPresent()) {
-      Greeter greeter = new Greeter(name.get(), title.get());
-      GreeterDTO greeterDTO = new GreeterDTO();
-      greeterDTO.setWelcome_message(greeter.getWelcome_message());
-      return ResponseEntity.status(HttpStatus.OK).body(greeterDTO);
-
-    } else if (!name.isPresent() && !title.isPresent()) {
-      GreeterErrorDTO greeterErrorDTO = new GreeterErrorDTO();
-      greeterErrorDTO.setError("Please provide a name and a title!");
-      return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(greeterErrorDTO);
-
-    } else if (!name.isPresent()) {
-      GreeterErrorDTO greeterErrorDTO = new GreeterErrorDTO();
-      greeterErrorDTO.setError("Please provide a name!");
-      return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(greeterErrorDTO);
-
-    } else {
-      GreeterErrorDTO greeterErrorDTO = new GreeterErrorDTO();
-      greeterErrorDTO.setError("Please provide a title!");
-      return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(greeterErrorDTO);
+      return ResponseEntity.status(HttpStatus.OK).body(new GreeterDTO(new Greeter(name.get(), title.get())));
     }
+    if (!name.isPresent() && !title.isPresent()) {
+      return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new GreeterErrorDTO("Please provide a name and a title!"));
+    }
+    if (!name.isPresent()) {
+      return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new GreeterErrorDTO("Please provide a name!"));
+    }
+    return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new GreeterErrorDTO("Please provide a title!"));
   }
+
 
   @GetMapping(value = "/appenda/{appendable}")
   @ResponseBody
   public ResponseEntity appenda(@PathVariable String appendable, HttpServletRequest request) {
-    saveLog(request);
-    Appenda text = new Appenda(appendable);
-    return ResponseEntity.status(HttpStatus.OK).body(text);
-  }
-
-  @PostMapping(value = "/dountil/{operation}")
-  @ResponseBody
-  public ResponseEntity doUntil(@PathVariable String operation,
-                                @RequestBody(required = false) String until,
-                                HttpServletRequest request) {
-
-    Log log = new Log();
-    log.setEndpoint(request.getServletPath());
-    log.setData(until);
-    log.setDate(new Date());
-    logRepository.save(log);
-
-    ObjectMapper mapper = new ObjectMapper();
-    try {
-      Number number = mapper.readValue(until, Number.class);
-      DoUntil doUntil = new DoUntil(operation, number.getUntil());
-      return ResponseEntity.status(HttpStatus.OK).body(doUntil);
-    } catch (JsonProcessingException e) {
-      DoUntilErrorDTO error = new DoUntilErrorDTO();
-      return ResponseEntity.status(HttpStatus.OK).body(error);
-    }
+    logService.saveLog(request);
+    return ResponseEntity.status(HttpStatus.OK).body(new Appenda(appendable));
   }
 
   @PostMapping(value = "/arrays")
   @ResponseBody
   public ResponseEntity arrays(@RequestBody(required = false) String input,
                                HttpServletRequest request) {
-    Log log = new Log();
-    log.setEndpoint(request.getServletPath());
-    log.setData(input);
-    log.setDate(new Date());
-    logRepository.save(log);
+
+    logService.saveLog(request);
 
     ObjectMapper mapper = new ObjectMapper();
     try {
@@ -148,25 +95,12 @@ public class MainController {
     }
   }
 
-
   @GetMapping(value = "/log")
   @ResponseBody
   public ResponseEntity logInfo() {
-    LogsDTO logsDTO = new LogsDTO();
-    logsDTO.setEntry_count(logRepository.countLogs());
-
-    List<Log> logs = logRepository.listLogs();
-    List<LogDTO> logDTOList = new ArrayList<>();
-    for (Log log : logs) {
-      LogDTO logDTO = new LogDTO();
-      logDTO.setId(log.getId());
-      logDTO.setEndpoint(log.getEndpoint());
-      logDTO.setData(log.getData());
-      logDTOList.add(logDTO);
-    }
-    logsDTO.setEntries(logDTOList);
-    return ResponseEntity.status(HttpStatus.OK).body(logsDTO);
+    return ResponseEntity.status(HttpStatus.OK).body(new LogsDTO(logService.getLogsDTO(), logService.countLogs()));
   }
+
 
   @PostMapping("/sith")
   @ResponseBody
@@ -186,7 +120,7 @@ public class MainController {
         return ResponseEntity.status(HttpStatus.OK).body(errorMessageDTO);
       }
     } else {
-        ErrorMessageDTO errorMessageDTO = new ErrorMessageDTO("Feed me some text you have to, padawan young you are. Hmmm.");
+      ErrorMessageDTO errorMessageDTO = new ErrorMessageDTO("Feed me some text you have to, padawan young you are. Hmmm.");
       return ResponseEntity.status(HttpStatus.OK).body(errorMessageDTO);
     }
   }

@@ -1,5 +1,8 @@
 package com.greenfoxacademy.frontend.models;
 
+import lombok.AllArgsConstructor;
+
+@AllArgsConstructor
 public class Doubling {
 
   private int received;
