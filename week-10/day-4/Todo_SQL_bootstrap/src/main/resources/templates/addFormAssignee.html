@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/style.css}" />
+    <title>Add New Assignee</title>
+</head>
+<body>
+    <h1>Add New Assignee</h1>
+
+    <form th:action="@{/assignee/add}" th:method="post">
+        <p>
+            <label for="name">Name</label>
+            <input type="text"  id="name"  name="name" required autofocus>
+        </p>
+        <p>
+            <label for="email">Email</label>
+            <input type="text"  id="email"  name="email" required>
+        </p>
+        <p>
+            <button type="submit">Submit</button>
+        </p>
+
+
+    </form>
+
+</body>
+</html>

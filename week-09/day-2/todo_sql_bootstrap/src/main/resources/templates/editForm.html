@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/style.css}" />
+    <title>Add New Todo</title>
+</head>
+<body>
+    <h1>Edit Todo</h1>
+
+    <form th:action="@{'/todo/{id}/edit' (id=*{id})}" th:method="post" th:object="${todo}">
+        <p>
+            <label for="title">ToDo Title</label>
+            <input type="text"  id="title"  name="title" th:value="*{title}" >
+        </p>
+        <p>
+            <label for="description">ToDo Description</label>
+            <input type="text"  id="description"  name="description" th:value="*{description}" >
+
+        </p>
+        <p>
+            <label for="assignee">Assignee</label>
+            <select type="text"  id="assignee"  name="assigneeId">
+                <option th:each="assignee : ${assignees}" th:value="${assignee.id}" th:text="${assignee}"></option>
+            </select>
+        </p>
+        <p>
+            <label for="dueDate">Urgent</label>
+            <input type="date" id="dueDate" name="dueDate">
+
+        </p>
+        <p>
+            <label for="urgent">Urgent</label>
+            <input type="checkbox" id="urgent" name="urgent" th:checked="*{urgent}">
+        </p>
+        <p>
+            <label for="done">Done</label>
+            <input type="checkbox" id="done" name="done" th:checked="*{done}">
+
+        </p>
+        <p>
+           <button type="submit">Submit</button>
+        </p>
+        <p>
+            <a th:href="@{/todo/list}">Cancel</a>
+        </p>
+    </form>
+
+</body>
+</html>
