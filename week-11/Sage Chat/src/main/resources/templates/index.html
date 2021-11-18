@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+</head>
+<body>
+<div>
+    <form th:action="@{/api/message/{username} (username = *{username})}" th:method="post">
+        <div>
+            <input type="text" name="content" id="content">
+            <button type="submit">Submit</button>
+            <a th:href="@{/api/user/logout/{username} (username = *{username})}">logout</a>
+        </div>
+    </form>
+</div>
+    <div>
+        <table>
+            <thead>
+            </thead>
+            <tbody>
+                <tr th:each="item : ${messages}" th:object="${item}">
+                    <td style="border: solid 1px blue;">
+                        <p style="font-size: 10px; " th:utext="*{author.getUsername()} + ' - ' + *{created}"</p>
+                        <p style="color:red;" th:text="*{content}">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
