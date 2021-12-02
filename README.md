@@ -30,4 +30,4 @@
 [romankerda/github.io](https://romankerda.github.io/ "myFirstWebpage on GitHub")
 = my first webpage created as 0th homework at GFA
 
-
+learning branching and pushing in git
