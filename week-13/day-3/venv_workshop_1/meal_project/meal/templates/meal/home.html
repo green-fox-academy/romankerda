@@ -1,0 +1,38 @@
+{% extends "meal/base.html" %}
+{% block content%}
+    <h3><a href="/meal">All Meals</a></h3>
+    {% if class_view %}
+        <p>Class Based View</p>
+    {% elif function_view %}
+        <p>Function Based View</p>
+    {% endif %}
+        <table>
+                <tr>
+                    <th>Meal name</th>
+                    <th>Meal calories</th>
+                    <th>date</th>
+                </tr>
+                {% for meal in meals %}
+                <tr>
+                    <td><a href="/meal/update/{{ meal.id }}">{{ meal.name }}</a></td>
+                    <td>{{ meal.calories }}</td>
+                    <td>{{ meal.date }}</td>
+                    <td><a href="/meal/delete/{{ meal.id }}">delete</td>
+                </tr>
+                {% endfor %}
+        </table>
+
+        <h3><a href="/meal/create">Add meal</a></h3>
+
+        {% comment %} {% if sum_calories%}
+        <h2>
+            Sum Calories for day > 
+
+        </h2> {% endcomment %}
+{% comment %}     
+        {% endif %} {% endcomment %}
+        {% comment %} <h3><a href="/meal/create">Add meal</a></h3> {% endcomment %}
+
+
+
+{% endblock content %}
