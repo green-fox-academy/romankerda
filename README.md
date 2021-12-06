@@ -2,6 +2,8 @@
 
    week / day |`1`| `2` | `3` | `4` | `5`
 :--------: |:---:|:-----:|:-----:|:-----:|:-----:
+`13`| []()  | []() | [`django meal prj`](https://github.com/green-fox-academy/romankerda/tree/master/week-13/day-3/meal_project) | []() | []()
+`12`| []()  | []() | []() | []() | []()
 `11`| [`Orientation Project`](https://github.com/green-fox-academy/romankerda/tree/master/week-11/Sage%20Chat)  | []() | []() | []() | []()
 `10`| [`Orientation Trial Exam`](https://github.com/romankerda/orientation-example-exam)  | [`Reddit Prj`](https://github.com/green-fox-academy/romankerda/tree/master/week-10/day-2) | []() | []() | [`tests`](https://github.com/green-fox-academy/romankerda/tree/master/week-10/day-5)
 `09`| []()  | [`Spring+SQL`](https://github.com/green-fox-academy/romankerda/tree/master/week-09/day-2) | []() | [`FoxClub with JPA`](https://github.com/green-fox-academy/romankerda/tree/master/week-09/day-4/Programmer%20Fox%20Club%20JPA) | [`Backend API`](https://github.com/green-fox-academy/romankerda/tree/master/week-09/day-5/frontend)
