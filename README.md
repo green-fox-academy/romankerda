@@ -2,7 +2,7 @@
 
    week / day |`1`| `2` | `3` | `4` | `5`
 :--------: |:---:|:-----:|:-----:|:-----:|:-----:
-`13`| []()  | []() | [`django meal prj`](https://github.com/green-fox-academy/romankerda/tree/master/week-13/day-3/meal_project) | []() | []()
+`13`| []()  | []() | [`django meal prj`](https://github.com/green-fox-academy/romankerda/tree/master/week-13/day-3/meal_project) | []() | [`project`](https://github.com/green-fox-academy/Arctic-Fox-Python-Tribes)
 `12`| []()  | []() | []() | []() | []()
 `11`| [`Orientation Project`](https://github.com/green-fox-academy/romankerda/tree/master/week-11/Sage%20Chat)  | []() | []() | []() | []()
 `10`| [`Orientation Trial Exam`](https://github.com/romankerda/orientation-example-exam)  | [`Reddit Prj`](https://github.com/green-fox-academy/romankerda/tree/master/week-10/day-2) | []() | []() | [`tests`](https://github.com/green-fox-academy/romankerda/tree/master/week-10/day-5)
